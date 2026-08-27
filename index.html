@@ -3,323 +3,1700 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rakhi Surprise 💗</title>
+
+<title>Something For You ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
+
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: "Poppins", sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --cream:#fff8ed;
+    --paper:#fffdf7;
+    --peach:#f5c7b5;
+    --pink:#e9a0aa;
+    --rose:#c96d7c;
+    --maroon:#762f3c;
+    --brown:#704b43;
+    --soft:#f8dfd0;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-  min-height:100vh;
-  overflow:hidden;
-  background:linear-gradient(145deg,#fff5f7,#ffe4ec,#fff8ef);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  color:#4a2630;
+    background:#f3d5c5;
+    color:var(--brown);
+    font-family:'DM Sans',sans-serif;
+    overflow-x:hidden;
+}
+
+/* subtle handmade paper effect */
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:999;
+    opacity:.13;
+    background-image:
+    radial-gradient(#704b43 .6px,transparent .6px);
+    background-size:8px 8px;
+}
+
+/* ===============================
+   COMMON
+================================ */
+
+section{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:70px 18px;
+    position:relative;
+    overflow:hidden;
 }
 
 .container{
-  width:92%;
-  max-width:430px;
-  text-align:center;
-  position:relative;
-  z-index:2;
+    width:100%;
+    max-width:900px;
+    margin:auto;
+    position:relative;
+    z-index:2;
 }
 
-.card{
-  background:rgba(255,255,255,.78);
-  backdrop-filter:blur(15px);
-  border:1px solid rgba(255,255,255,.9);
-  border-radius:32px;
-  padding:35px 25px;
-  box-shadow:0 20px 60px rgba(145,55,85,.16);
-  animation:appear .8s ease;
+.hand{
+    font-family:'Caveat',cursive;
 }
 
-@keyframes appear{
-  from{opacity:0;transform:translateY(25px) scale(.96)}
-  to{opacity:1;transform:translateY(0) scale(1)}
-}
-
-.rakhi{
-  font-size:65px;
-  animation:float 2.5s infinite ease-in-out;
-}
-
-@keyframes float{
-  50%{transform:translateY(-8px) rotate(3deg)}
-}
-
-h1{
-  font-size:29px;
-  margin:12px 0 8px;
+.section-title{
+    font-family:'Caveat',cursive;
+    font-size:clamp(48px,10vw,78px);
+    line-height:.95;
+    text-align:center;
+    color:var(--maroon);
+    margin-bottom:15px;
 }
 
 .subtitle{
-  font-size:14px;
-  line-height:1.6;
-  color:#805862;
-  margin-bottom:25px;
+    max-width:560px;
+    margin:auto;
+    text-align:center;
+    color:#916d64;
+    font-size:15px;
+    line-height:1.7;
 }
 
-input{
-  width:100%;
-  padding:15px 18px;
-  border:none;
-  outline:none;
-  border-radius:16px;
-  background:#fff;
-  box-shadow:0 6px 20px rgba(100,30,50,.08);
-  font-size:15px;
-  text-align:center;
+.btn{
+    border:none;
+    padding:14px 27px;
+    border-radius:50px;
+    background:var(--maroon);
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+    box-shadow:0 6px 0 #54222c;
+    transition:.2s;
 }
 
-button{
-  width:100%;
-  border:none;
-  padding:15px;
-  margin-top:15px;
-  border-radius:16px;
-  background:linear-gradient(135deg,#e95d87,#c83f6b);
-  color:white;
-  font-size:16px;
-  font-weight:600;
-  cursor:pointer;
-  box-shadow:0 10px 25px rgba(200,63,107,.25);
-  transition:.25s;
+.btn:hover{
+    transform:translateY(-2px);
 }
 
-button:hover{
-  transform:translateY(-2px);
+.btn:active{
+    transform:translateY(3px);
+    box-shadow:0 3px 0 #54222c;
 }
 
-#surprise{
-  display:none;
+.btn.light{
+    background:#fff3e7;
+    color:var(--maroon);
+    box-shadow:0 5px 0 #dfb9a7;
 }
 
-.message{
-  font-size:17px;
-  line-height:1.8;
-  margin:20px 0;
+.doodle{
+    position:absolute;
+    font-size:30px;
+    opacity:.65;
+    animation:doodleFloat 4s ease-in-out infinite;
 }
 
-.name{
-  color:#c83f6b;
-  font-weight:700;
+.d1{top:10%;left:7%}
+.d2{top:18%;right:8%;animation-delay:1s}
+.d3{bottom:12%;left:9%;animation-delay:2s}
+.d4{bottom:20%;right:9%;animation-delay:.5s}
+
+@keyframes doodleFloat{
+    0%,100%{
+        transform:translateY(0) rotate(-4deg);
+    }
+    50%{
+        transform:translateY(-12px) rotate(5deg);
+    }
 }
 
-.small{
-  font-size:13px;
-  color:#8c626c;
+/* ===============================
+   COVER
+================================ */
+
+#cover{
+    background:
+    radial-gradient(circle at 15% 20%,#ffe8d7 0 12%,transparent 32%),
+    radial-gradient(circle at 90% 80%,#f5bbc4 0 12%,transparent 32%),
+    var(--cream);
 }
 
-.share{
-  background:#fff;
-  color:#c83f6b;
-  border:1px solid #f1c4d2;
-  box-shadow:none;
+.cover-card{
+    max-width:650px;
+    margin:auto;
+    background:var(--paper);
+    padding:50px 25px 45px;
+    text-align:center;
+    border-radius:9px;
+    box-shadow:0 25px 60px #713c4720;
+    transform:rotate(-1deg);
+    position:relative;
 }
+
+.cover-card:before{
+    content:"";
+    position:absolute;
+    width:110px;
+    height:27px;
+    background:#e8b29aaa;
+    top:-13px;
+    left:50%;
+    transform:translateX(-50%) rotate(2deg);
+}
+
+.label{
+    font-size:11px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:#a67870;
+}
+
+.cover-title{
+    font-family:'Caveat',cursive;
+    font-size:clamp(58px,13vw,100px);
+    color:var(--maroon);
+    line-height:.85;
+    margin:18px 0;
+}
+
+.cover-sub{
+    font-family:'Caveat',cursive;
+    color:#a35d68;
+    font-size:25px;
+    line-height:1.2;
+}
+
+/* ===============================
+   ENVELOPE
+================================ */
+
+.envelope-wrap{
+    width:285px;
+    height:190px;
+    margin:40px auto 30px;
+    cursor:pointer;
+    perspective:900px;
+}
+
+.envelope{
+    height:100%;
+    width:100%;
+    background:#e9b09b;
+    position:relative;
+    border-radius:5px;
+    box-shadow:0 15px 30px #713c4725;
+}
+
+.envelope-back{
+    position:absolute;
+    inset:0;
+    background:#e0a08d;
+    z-index:1;
+}
+
+.letter-preview{
+    position:absolute;
+    width:88%;
+    height:145px;
+    left:6%;
+    bottom:15px;
+    background:#fffdf7;
+    z-index:2;
+    padding:20px;
+    font-family:'Caveat',cursive;
+    font-size:21px;
+    color:var(--maroon);
+    transition:1s;
+}
+
+.flap{
+    position:absolute;
+    inset:0;
+    z-index:4;
+    background:#f4c5b4;
+    clip-path:polygon(0 0,50% 58%,100% 0);
+    transform-origin:top;
+    transition:1s cubic-bezier(.2,.8,.2,1);
+}
+
+.envelope.open .flap{
+    transform:rotateX(180deg);
+}
+
+.envelope.open .letter-preview{
+    transform:translateY(-105px);
+}
+
+.envelope-front{
+    position:absolute;
+    inset:0;
+    z-index:3;
+    pointer-events:none;
+    background:#d99683;
+    clip-path:polygon(0 100%,50% 45%,100% 100%);
+}
+
+.seal{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:#9e4c5d;
+    color:white;
+    position:absolute;
+    z-index:6;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:25px;
+    box-shadow:0 5px 12px #5e263344;
+    transition:.5s;
+}
+
+.envelope.open .seal{
+    opacity:0;
+    transform:translate(-50%,-50%) scale(.4);
+}
+
+/* ===============================
+   LETTER
+================================ */
+
+#letter{
+    background:#f7dccb;
+}
+
+.paper{
+    max-width:720px;
+    margin:auto;
+    padding:45px 35px;
+    background:var(--paper);
+    box-shadow:0 20px 45px #713c4720;
+    position:relative;
+    transform:rotate(.4deg);
+}
+
+.paper:before,
+.paper:after{
+    content:"";
+    position:absolute;
+    width:90px;
+    height:23px;
+    background:#e7b39faa;
+}
+
+.paper:before{
+    top:-11px;
+    left:45px;
+    transform:rotate(-4deg);
+}
+
+.paper:after{
+    bottom:-11px;
+    right:45px;
+    transform:rotate(4deg);
+}
+
+.paper h2{
+    font-family:'Caveat',cursive;
+    font-size:50px;
+    color:var(--maroon);
+    margin-bottom:20px;
+}
+
+.paper p{
+    font-family:'Caveat',cursive;
+    font-size:22px;
+    line-height:1.55;
+    margin-bottom:14px;
+}
+
+.signature{
+    text-align:right;
+    color:var(--rose);
+    font-size:29px!important;
+}
+
+/* ===============================
+   BALLOONS
+================================ */
+
+#balloons{
+    background:
+    radial-gradient(circle at 10% 90%,#f6b9a8 0 12%,transparent 30%),
+    radial-gradient(circle at 90% 10%,#e7a0ad 0 12%,transparent 30%),
+    #fff0e3;
+}
+
+.balloon-area{
+    max-width:700px;
+    margin:50px auto 40px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+}
+
+.balloon{
+    width:75px;
+    height:100px;
+    border-radius:50%;
+    position:relative;
+    cursor:pointer;
+    box-shadow:inset -12px -12px 15px #00000010;
+    animation:balloonFloat 3s ease-in-out infinite;
+    transition:.2s;
+}
+
+.balloon:hover{
+    transform:scale(1.08);
+}
+
+.balloon:nth-child(1){background:#e59aa5}
+.balloon:nth-child(2){background:#f0c1a9;animation-delay:.4s}
+.balloon:nth-child(3){background:#c77b87;animation-delay:.8s}
+.balloon:nth-child(4){background:#e9ae9b;animation-delay:1.1s}
+.balloon:nth-child(5){background:#d88795;animation-delay:1.5s}
+.balloon:nth-child(6){background:#efc7a9;animation-delay:1.8s}
+
+.balloon:before{
+    content:"";
+    position:absolute;
+    bottom:-7px;
+    left:50%;
+    width:10px;
+    height:10px;
+    background:inherit;
+    transform:translateX(-50%) rotate(45deg);
+}
+
+.balloon:after{
+    content:"";
+    position:absolute;
+    top:98%;
+    left:50%;
+    height:90px;
+    width:1px;
+    background:#95655e;
+}
+
+.balloon span{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-family:'Caveat',cursive;
+    font-size:28px;
+}
+
+@keyframes balloonFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-15px);
+    }
+}
+
+/* ===============================
+   MESSAGE BOX
+================================ */
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:#422029aa;
+    backdrop-filter:blur(7px);
+    z-index:500;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.overlay.show{
+    display:flex;
+}
+
+.note{
+    width:100%;
+    max-width:480px;
+    background:#fffaf0;
+    padding:45px 28px 32px;
+    position:relative;
+    box-shadow:0 25px 70px #32151c55;
+    animation:noteOpen .45s cubic-bezier(.2,.8,.2,1);
+    transform:rotate(-1deg);
+}
+
+@keyframes noteOpen{
+    from{
+        opacity:0;
+        transform:translateY(30px) rotate(-5deg) scale(.88);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) rotate(-1deg) scale(1);
+    }
+}
+
+.note:before{
+    content:"";
+    position:absolute;
+    top:-11px;
+    left:50%;
+    width:90px;
+    height:23px;
+    background:#e6b29daa;
+    transform:translateX(-50%) rotate(2deg);
+}
+
+.close{
+    position:absolute;
+    right:12px;
+    top:10px;
+    border:none;
+    background:none;
+    color:#8a5a57;
+    font-size:25px;
+    cursor:pointer;
+}
+
+.note-small{
+    color:#ad7771;
+    text-transform:uppercase;
+    font-size:11px;
+    letter-spacing:2px;
+}
+
+.note h3{
+    font-family:'Caveat',cursive;
+    color:var(--maroon);
+    font-size:43px;
+    margin:10px 0;
+}
+
+.note p{
+    font-family:'Caveat',cursive;
+    font-size:25px;
+    line-height:1.4;
+}
+
+/* ===============================
+   RAKHI PHOTO
+================================ */
+
+#rakhi{
+    background:#f8dfd0;
+}
+
+.rakhi-card{
+    max-width:650px;
+    margin:40px auto;
+    background:var(--paper);
+    padding:35px;
+    box-shadow:0 20px 45px #713c4720;
+    position:relative;
+    transform:rotate(-.7deg);
+}
+
+.rakhi-card:before{
+    content:"";
+    position:absolute;
+    top:-12px;
+    left:50%;
+    width:100px;
+    height:25px;
+    background:#e5b09caa;
+    transform:translateX(-50%) rotate(3deg);
+}
+
+.rakhi-photo{
+    width:100%;
+    max-width:430px;
+    aspect-ratio:4/3;
+    margin:10px auto 20px;
+    border:2px dashed #cf9586;
+    background:#fae9dd;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+}
+
+.rakhi-photo .placeholder{
+    text-align:center;
+    font-family:'Caveat',cursive;
+    color:#a06d64;
+}
+
+.rakhi-photo .placeholder strong{
+    display:block;
+    font-size:30px;
+    font-weight:600;
+}
+
+.rakhi-photo .placeholder span{
+    font-size:17px;
+}
+
+.rakhi-photo img{
+    display:none;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.rakhi-caption{
+    text-align:center;
+    font-family:'Caveat',cursive;
+    font-size:27px;
+    color:var(--maroon);
+}
+
+/* ===============================
+   MEMORIES
+================================ */
+
+#memories{
+    background:#f3d2c0;
+}
+
+.photo-grid{
+    max-width:720px;
+    margin:45px auto;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+}
+
+.photo-card{
+    background:#fffdf7;
+    padding:12px 12px 28px;
+    box-shadow:0 15px 35px #713c4720;
+    position:relative;
+}
+
+.photo-card:first-child{
+    transform:rotate(-3deg);
+}
+
+.photo-card:last-child{
+    transform:rotate(3deg);
+}
+
+.photo-card:before{
+    content:"";
+    position:absolute;
+    top:-11px;
+    left:50%;
+    width:80px;
+    height:22px;
+    background:#e5b09caa;
+    transform:translateX(-50%) rotate(2deg);
+}
+
+.photo-box{
+    width:100%;
+    aspect-ratio:1/1;
+    background:#f9e9dc;
+    border:2px dashed #ce9688;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+}
+
+.photo-box .placeholder{
+    text-align:center;
+    font-family:'Caveat',cursive;
+    color:#a06d64;
+}
+
+.photo-box .placeholder strong{
+    display:block;
+    font-size:28px;
+}
+
+.photo-box .placeholder span{
+    font-family:'DM Sans',sans-serif;
+    font-size:11px;
+}
+
+.photo-box img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:none;
+}
+
+.caption{
+    text-align:center;
+    margin-top:8px;
+    font-family:'Caveat',cursive;
+    color:var(--maroon);
+    font-size:25px;
+}
+
+input[type=file]{
+    display:none;
+}
+
+/* ===============================
+   FINAL
+================================ */
+
+#final{
+    background:
+    radial-gradient(circle at 50% 20%,#ffe6d5,transparent 38%),
+    #fff4e8;
+    text-align:center;
+}
+
+.final-card{
+    max-width:750px;
+    margin:auto;
+    padding:45px 20px;
+}
+
+.rakhi-icon{
+    font-size:75px;
+    animation:doodleFloat 3s ease-in-out infinite;
+}
+
+.final-text{
+    max-width:600px;
+    margin:25px auto;
+    font-family:'Caveat',cursive;
+    font-size:28px;
+    line-height:1.5;
+}
+
+.final-title{
+    font-family:'Caveat',cursive;
+    color:var(--maroon);
+    font-size:clamp(48px,10vw,82px);
+    line-height:.95;
+}
+
+.from{
+    font-family:'Caveat',cursive;
+    color:#b45f6c;
+    font-size:31px;
+    margin:20px 0 30px;
+}
+
+/* ===============================
+   FLOATING HEARTS
+================================ */
 
 .heart{
-  position:fixed;
-  font-size:18px;
-  pointer-events:none;
-  animation:fall linear infinite;
-  opacity:.7;
+    position:fixed;
+    z-index:600;
+    pointer-events:none;
+    animation:heartFall linear forwards;
 }
 
-@keyframes fall{
-  from{
-    transform:translateY(-10vh) rotate(0deg);
-  }
-  to{
-    transform:translateY(110vh) rotate(360deg);
-  }
+@keyframes heartFall{
+    from{
+        transform:translateY(-30px) rotate(0);
+        opacity:1;
+    }
+    to{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
 }
 
-.hidden{
-  display:none;
+/* ===============================
+   MOBILE
+================================ */
+
+@media(max-width:600px){
+
+    section{
+        padding:55px 14px;
+    }
+
+    .cover-card{
+        padding:45px 16px;
+    }
+
+    .envelope-wrap{
+        width:250px;
+        height:168px;
+    }
+
+    .paper{
+        padding:38px 22px;
+    }
+
+    .paper p{
+        font-size:20px;
+    }
+
+    .balloon-area{
+        gap:18px;
+    }
+
+    .balloon{
+        width:63px;
+        height:86px;
+    }
+
+    .photo-grid{
+        gap:15px;
+    }
+
+    .photo-card{
+        padding:8px 8px 23px;
+    }
+
+    .caption{
+        font-size:21px;
+    }
+
+    .rakhi-card{
+        padding:25px 18px;
+    }
+
+    .note p{
+        font-size:22px;
+    }
+
 }
 
-.back{
-  margin-top:10px;
-  background:transparent;
-  color:#9c6975;
-  box-shadow:none;
-  font-size:13px;
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *:before,
+    *:after{
+        animation:none!important;
+        scroll-behavior:auto!important;
+        transition:none!important;
+    }
+
 }
+
 </style>
 </head>
 
+
 <body>
+
+
+<!-- =========================
+     COVER
+========================= -->
+
+<section id="cover">
+
+<div class="doodle d1">🌸</div>
+<div class="doodle d2">♡</div>
+<div class="doodle d3">✦</div>
+<div class="doodle d4">🎀</div>
 
 <div class="container">
 
-  <!-- FIRST SCREEN -->
-  <div class="card" id="home">
+<div class="cover-card">
 
-    <div class="rakhi">🎀</div>
+<div class="label">
+A tiny surprise made with love
+</div>
 
-    <h1>A Little Rakhi Surprise 💗</h1>
+<div class="cover-title">
+Something<br>
+For You ❤️
+</div>
 
-    <p class="subtitle">
-      This Rakhi, make your brother feel a little extra special 🥹✨
-      <br>
-      Enter his name to unlock the surprise.
-    </p>
-
-    <input
-      type="text"
-      id="brotherName"
-      placeholder="Enter your brother's name 💌"
-      maxlength="30"
-    >
-
-    <button onclick="openSurprise()">
-      Open His Surprise 🎁
-    </button>
-
-    <p class="small" style="margin-top:18px;">
-      Made with love, just for your brother ❤️
-    </p>
-
-  </div>
+<div class="cover-sub">
+Because you're not just my Bhaiya...
+<br>
+you're also my forever partner in crime 😂
+</div>
 
 
-  <!-- SURPRISE SCREEN -->
-  <div class="card" id="surprise">
+<div class="envelope-wrap" onclick="openEnvelope()">
 
-    <div class="rakhi">🪢</div>
+<div class="envelope" id="envelope">
 
-    <h1>Happy Raksha Bandhan! 🥹❤️</h1>
+<div class="envelope-back"></div>
 
-    <p class="message">
-      Dear <span class="name" id="displayName"></span>,
-      <br><br>
+<div class="letter-preview">
+A little something...
+<br>
+just for you ❤️
+</div>
 
-      Life would be a little less fun without you.
-      Thank you for always being there,
-      annoying me, protecting me
-      and making me smile. 🫶🏻
-      <br><br>
+<div class="flap"></div>
 
-      No matter how much we fight,
-      you'll always be one of my favourite people. 💗
-      <br><br>
+<div class="envelope-front"></div>
 
-      <b>Happy Raksha Bandhan, Bhai! 🎀</b>
-    </p>
+<div class="seal">
+♡
+</div>
 
-    <button class="share" onclick="shareSurprise()">
-      💌 Share This Surprise
-    </button>
-
-    <button class="back" onclick="goBack()">
-      ← Make another surprise
-    </button>
-
-  </div>
+</div>
 
 </div>
 
 
+<button class="btn" onclick="openEnvelope()">
+Open 💌
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     LETTER
+========================= -->
+
+<section id="letter">
+
+<div class="container">
+
+<div class="paper">
+
+<h2>
+Dear <span id="brotherName">Bhaiya</span> ❤️
+</h2>
+
+<p>
+I don't always say it, but I'm really lucky to have you in my life.
+</p>
+
+<p>
+Growing up with you means a collection of silly fights,
+random laughs, family drama and so many memories
+that somehow became our favourite stories.
+</p>
+
+<p>
+You're annoying sometimes...
+okay fine, <b>most of the time.</b> 😂
+</p>
+
+<p>
+But behind all the teasing and fights,
+I know you're someone I can always count on.
+</p>
+
+<p>
+Thank you for all the little things you do,
+for looking out for me and for making our family
+a little more fun.
+</p>
+
+<p>
+I hope we keep making ridiculous memories together
+for many, many years.
+</p>
+
+<p>
+And yes...
+Rakhi means a treat too.
+I don't make the rules. 😌😂
+</p>
+
+<p class="signature">
+With lots of love,<br>
+<span id="senderName">Your favourite sibling</span> ❤️
+</p>
+
+<div style="text-align:center;margin-top:25px">
+
+<button class="btn" onclick="goTo('balloons')">
+Next → 🎈
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     BALLOONS
+========================= -->
+
+<section id="balloons">
+
+<div class="container">
+
+<h1 class="section-title">
+A Few Little Things 🎈
+</h1>
+
+<p class="subtitle">
+Touch a balloon and discover a little note hidden inside. 👀❤️
+</p>
+
+
+<div class="balloon-area">
+
+<div class="balloon" onclick="showMessage(0)">
+<span>♡</span>
+</div>
+
+<div class="balloon" onclick="showMessage(1)">
+<span>✦</span>
+</div>
+
+<div class="balloon" onclick="showMessage(2)">
+<span>♡</span>
+</div>
+
+<div class="balloon" onclick="showMessage(3)">
+<span>✿</span>
+</div>
+
+<div class="balloon" onclick="showMessage(4)">
+<span>♥</span>
+</div>
+
+<div class="balloon" onclick="showMessage(5)">
+<span>✦</span>
+</div>
+
+</div>
+
+
+<div style="text-align:center;margin-top:50px">
+
+<button class="btn" onclick="goTo('rakhi')">
+Next → 🎀
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     MESSAGE POPUP
+========================= -->
+
+<div class="overlay" id="messageOverlay">
+
+<div class="note">
+
+<button class="close" onclick="closeMessage()">×</button>
+
+<div class="note-small">
+A little note for you
+</div>
+
+<h3 id="messageTitle">
+Hey Bhaiya ❤️
+</h3>
+
+<p id="messageText"></p>
+
+<div style="text-align:center;margin-top:25px">
+
+<button class="btn light" onclick="closeMessage()">
+One more? 🎈
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================
+     RAKHI PHOTO
+========================= -->
+
+<section id="rakhi">
+
+<div class="container">
+
+<h1 class="section-title">
+Something I Got For You 🎁
+</h1>
+
+<p class="subtitle">
+A little Rakhi, chosen specially for you. ❤️
+</p>
+
+
+<div class="rakhi-card">
+
+<label class="rakhi-photo" for="rakhiPhoto">
+
+<div class="placeholder" id="rakhiPlaceholder">
+
+<strong>
+＋ Add Rakhi Photo
+</strong>
+
+<span>
+Choose a photo from your gallery 📸
+</span>
+
+</div>
+
+<img id="rakhiPreview">
+
+</label>
+
+<input
+type="file"
+id="rakhiPhoto"
+accept="image/*"
+onchange="previewImage(this,'rakhiPreview','rakhiPlaceholder')"
+>
+
+
+<div class="rakhi-caption">
+Saw this and thought of you 🥹❤️
+</div>
+
+</div>
+
+
+<div style="text-align:center;margin-top:35px">
+
+<button class="btn" onclick="goTo('memories')">
+Our Memories 📸
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     MEMORIES
+========================= -->
+
+<section id="memories">
+
+<div class="container">
+
+<h1 class="section-title">
+Our Memories 📸
+</h1>
+
+<p class="subtitle">
+Add your two favourite pictures and make this little scrapbook yours. ❤️
+</p>
+
+
+<div class="photo-grid">
+
+
+<!-- PHOTO 1 -->
+
+<div class="photo-card">
+
+<label class="photo-box" for="photo1">
+
+<div class="placeholder" id="placeholder1">
+
+<strong>
+＋ Add Photo
+</strong>
+
+<span>
+Choose from gallery
+</span>
+
+</div>
+
+<img id="preview1">
+
+</label>
+
+<input
+type="file"
+id="photo1"
+accept="image/*"
+onchange="previewImage(this,'preview1','placeholder1')"
+>
+
+<div class="caption">
+One of our favourite memories ❤️
+</div>
+
+</div>
+
+
+
+<!-- PHOTO 2 -->
+
+<div class="photo-card">
+
+<label class="photo-box" for="photo2">
+
+<div class="placeholder" id="placeholder2">
+
+<strong>
+＋ Add Photo
+</strong>
+
+<span>
+Choose from gallery
+</span>
+
+</div>
+
+<img id="preview2">
+
+</label>
+
+<input
+type="file"
+id="photo2"
+accept="image/*"
+onchange="previewImage(this,'preview2','placeholder2')"
+>
+
+<div class="caption">
+Just us being us 😂
+</div>
+
+</div>
+
+
+</div>
+
+
+<div style="text-align:center;margin-top:35px">
+
+<button class="btn" onclick="goTo('final')">
+One Last Thing ❤️
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     FINAL
+========================= -->
+
+<section id="final">
+
+<div class="container">
+
+<div class="final-card">
+
+<div class="rakhi-icon">
+🪢
+</div>
+
+<p class="final-text">
+
+Some bonds don't need perfect words...
+
+<br>
+
+they just grow stronger with every silly fight,
+every laugh and every memory. ❤️
+
+</p>
+
+
+<div class="final-title">
+
+Happy Raksha<br>
+Bandhan <span id="finalBrother">Bhaiya</span> ❤️
+
+</div>
+
+
+<div class="from">
+
+— <span id="finalSender">Your favourite sibling</span>
+
+</div>
+
+
+<button class="btn" onclick="shareWebsite()">
+Share This Surprise 💌
+</button>
+
+<br><br>
+
+<button class="btn light" onclick="goTo('cover')">
+↻ Replay Our Story
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+
 <script>
 
-function createHearts(){
+/* ===============================
+   PERSONAL DETAILS
+================================ */
 
-  const symbols=["♡","♥","✨","🌸"];
+let brother = "Bhaiya";
+let sender = "Your favourite sibling";
 
-  for(let i=0;i<22;i++){
+let started = false;
 
-    const heart=document.createElement("div");
 
-    heart.className="heart";
+/* ===============================
+   OPEN ENVELOPE
+================================ */
 
-    heart.innerHTML=symbols[Math.floor(Math.random()*symbols.length)];
+function openEnvelope(){
 
-    heart.style.left=Math.random()*100+"vw";
+    if(started) return;
 
-    heart.style.animationDuration=(5+Math.random()*7)+"s";
+    started = true;
 
-    heart.style.animationDelay=Math.random()*5+"s";
+    const envelope =
+        document.getElementById("envelope");
 
-    heart.style.fontSize=(12+Math.random()*15)+"px";
+    envelope.classList.add("open");
 
-    document.body.appendChild(heart);
-  }
+    createHearts(20);
+
+    setTimeout(function(){
+
+        let brotherInput =
+            prompt(
+                "Bhaiya ka naam kya likhna hai? ❤️",
+                ""
+            );
+
+        if(
+            brotherInput &&
+            brotherInput.trim() !== ""
+        ){
+
+            brother = brotherInput.trim();
+
+        }
+
+
+        let senderInput =
+            prompt(
+                "Apna naam kya likhna hai? 💌",
+                ""
+            );
+
+        if(
+            senderInput &&
+            senderInput.trim() !== ""
+        ){
+
+            sender = senderInput.trim();
+
+        }
+
+
+        document.getElementById(
+            "brotherName"
+        ).textContent = brother;
+
+        document.getElementById(
+            "finalBrother"
+        ).textContent = brother;
+
+        document.getElementById(
+            "senderName"
+        ).textContent = sender;
+
+        document.getElementById(
+            "finalSender"
+        ).textContent = sender;
+
+
+        setTimeout(function(){
+
+            goTo("letter");
+
+        },400);
+
+    },900);
+
 }
 
-createHearts();
 
+/* ===============================
+   SMOOTH SCROLL
+================================ */
 
-function openSurprise(){
+function goTo(id){
 
-  const input=document.getElementById("brotherName");
+    const element =
+        document.getElementById(id);
 
-  let name=input.value.trim();
+    if(element){
 
-  if(name===""){
-    input.focus();
-    input.placeholder="Pehle bhai ka naam toh likho 🥹";
-    return;
-  }
-
-  document.getElementById("displayName").innerText=name;
-
-  document.getElementById("home").style.display="none";
-
-  document.getElementById("surprise").style.display="block";
-}
-
-
-function goBack(){
-
-  document.getElementById("surprise").style.display="none";
-
-  document.getElementById("home").style.display="block";
-
-  document.getElementById("brotherName").value="";
-}
-
-
-async function shareSurprise(){
-
-  const text=
-  "A little Rakhi surprise for my brother ❤️🎀";
-
-  if(navigator.share){
-
-    try{
-
-      await navigator.share({
-        title:"Rakhi Surprise 🎀",
-        text:text,
-        url:window.location.href
-      });
-
-    }catch(e){}
-
-  }else{
-
-    try{
-
-      await navigator.clipboard.writeText(window.location.href);
-
-      alert("Surprise link copied! 💗");
-
-    }catch(e){
-
-      alert("Copy this page link and send it to your brother ❤️");
+        element.scrollIntoView({
+            behavior:"smooth"
+        });
 
     }
 
-  }
 }
+
+
+/* ===============================
+   BALLOON MESSAGES
+================================ */
+
+const messages = [
+
+"Thanks for being my built-in protector... even when I didn't ask. 😭❤️",
+
+"You're annoying, but unfortunately you're still one of my favourite people. 😂❤️",
+
+"Some of my best childhood memories have you somewhere in them. 🥹❤️",
+
+"Official reminder: Rakhi means a treat too. Don't forget. 👀😂",
+
+"Thank you for all the little things you do that I don't always say thank you for. ❤️",
+
+"Growing up together = lots of fights + even more unforgettable memories. 🫶🏻"
+
+];
+
+
+function showMessage(index){
+
+    document.getElementById(
+        "messageTitle"
+    ).textContent =
+        "Hey " + brother + " ❤️";
+
+
+    document.getElementById(
+        "messageText"
+    ).textContent =
+        messages[index];
+
+
+    document.getElementById(
+        "messageOverlay"
+    ).classList.add("show");
+
+
+    createHearts(8);
+
+}
+
+
+/* ===============================
+   CLOSE MESSAGE
+================================ */
+
+function closeMessage(){
+
+    document
+    .getElementById("messageOverlay")
+    .classList.remove("show");
+
+}
+
+
+/* ===============================
+   BACKGROUND CLICK
+================================ */
+
+document
+.getElementById("messageOverlay")
+.addEventListener(
+    "click",
+    function(event){
+
+        if(event.target === this){
+
+            closeMessage();
+
+        }
+
+    }
+);
+
+
+/* ===============================
+   IMAGE PREVIEW
+================================ */
+
+function previewImage(
+    input,
+    imageId,
+    placeholderId
+){
+
+    const file =
+        input.files[0];
+
+    if(!file) return;
+
+
+    const image =
+        document.getElementById(imageId);
+
+    const placeholder =
+        document.getElementById(placeholderId);
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload =
+        function(event){
+
+            image.src =
+                event.target.result;
+
+            image.style.display =
+                "block";
+
+            placeholder.style.display =
+                "none";
+
+        };
+
+
+    reader.readAsDataURL(file);
+
+}
+
+
+/* ===============================
+   FLOATING HEARTS
+================================ */
+
+function createHearts(amount){
+
+    const symbols = [
+        "♥",
+        "♡",
+        "✦",
+        "🌸"
+    ];
+
+
+    for(
+        let i=0;
+        i<amount;
+        i++
+    ){
+
+        const heart =
+            document.createElement("div");
+
+
+        heart.className =
+            "heart";
+
+
+        heart.textContent =
+            symbols[
+                Math.floor(
+                    Math.random() *
+                    symbols.length
+                )
+            ];
+
+
+        heart.style.left =
+            Math.random()*100 +
+            "vw";
+
+
+        heart.style.top =
+            "-20px";
+
+
+        heart.style.fontSize =
+            14 +
+            Math.random()*18 +
+            "px";
+
+
+        heart.style.color =
+            "#9e4c5d";
+
+
+        heart.style.animationDuration =
+            4 +
+            Math.random()*4 +
+            "s";
+
+
+        document.body.appendChild(
+            heart
+        );
+
+
+        setTimeout(
+            function(){
+
+                heart.remove();
+
+            },
+            8000
+        );
+
+    }
+
+}
+
+
+/* ===============================
+   SHARE
+================================ */
+
+async function shareWebsite(){
+
+    const shareData = {
+
+        title:
+            "Something For You ❤️",
+
+        text:
+            "I made a little Raksha Bandhan surprise for you 🎀❤️",
+
+        url:
+            window.location.href
+
+    };
+
+
+    if(
+        navigator.share
+    ){
+
+        try{
+
+            await navigator.share(
+                shareData
+            );
+
+        }catch(error){}
+
+    }
+
+    else{
+
+        try{
+
+            await navigator.clipboard.writeText(
+                window.location.href
+            );
+
+
+            alert(
+                "Surprise link copied! ❤️"
+            );
+
+        }
+
+        catch(error){
+
+            alert(
+                "Copy this page link and send it to your Bhaiya ❤️"
+            );
+
+        }
+
+    }
+
+}
+
+
+/* ===============================
+   ESC KEY
+================================ */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Escape"
+        ){
+
+            closeMessage();
+
+        }
+
+    }
+);
 
 </script>
 
