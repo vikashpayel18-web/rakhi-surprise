@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Something For You ❤️</title>
+<title>For Babuu ❤️</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,102 +21,81 @@
 :root{
     --cream:#fff8ed;
     --paper:#fffdf7;
-    --peach:#f5c7b5;
-    --pink:#e9a0aa;
-    --rose:#c96d7c;
     --maroon:#762f3c;
     --brown:#704b43;
-    --soft:#f8dfd0;
+    --rose:#c96d7c;
 }
 
-html{
-    scroll-behavior:smooth;
+html,body{
+    width:100%;
+    height:100%;
 }
 
 body{
     background:#f3d5c5;
     color:var(--brown);
     font-family:'DM Sans',sans-serif;
-    overflow-x:hidden;
+    overflow:hidden;
 }
 
-/* subtle handmade paper effect */
+/* =========================
+   PAGE SYSTEM
+========================= */
 
-body:before{
-    content:"";
+.page{
     position:fixed;
     inset:0;
-    pointer-events:none;
-    z-index:999;
-    opacity:.13;
-    background-image:
-    radial-gradient(#704b43 .6px,transparent .6px);
-    background-size:8px 8px;
-}
-
-/* ===============================
-   COMMON
-================================ */
-
-section{
-    min-height:100vh;
-    display:flex;
+    width:100%;
+    height:100vh;
+    display:none;
     align-items:center;
     justify-content:center;
-    padding:70px 18px;
-    position:relative;
-    overflow:hidden;
+    padding:20px 15px;
+    overflow-y:auto;
+    z-index:1;
+}
+
+.page.active{
+    display:flex;
+    z-index:10;
+    animation:pageIn .5s ease;
+}
+
+@keyframes pageIn{
+    from{
+        opacity:0;
+        transform:scale(.97);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
 }
 
 .container{
     width:100%;
-    max-width:900px;
+    max-width:850px;
     margin:auto;
-    position:relative;
-    z-index:2;
 }
 
-.hand{
-    font-family:'Caveat',cursive;
-}
-
-.section-title{
-    font-family:'Caveat',cursive;
-    font-size:clamp(48px,10vw,78px);
-    line-height:.95;
-    text-align:center;
-    color:var(--maroon);
-    margin-bottom:15px;
-}
-
-.subtitle{
-    max-width:560px;
-    margin:auto;
-    text-align:center;
-    color:#916d64;
-    font-size:15px;
-    line-height:1.7;
-}
+/* =========================
+   BUTTON
+========================= */
 
 .btn{
-    border:none;
-    padding:14px 27px;
+    border:0;
+    padding:14px 28px;
     border-radius:50px;
     background:var(--maroon);
     color:white;
     font-size:15px;
     cursor:pointer;
-    box-shadow:0 6px 0 #54222c;
-    transition:.2s;
-}
-
-.btn:hover{
-    transform:translateY(-2px);
+    box-shadow:0 5px 0 #54222c;
 }
 
 .btn:active{
     transform:translateY(3px);
-    box-shadow:0 3px 0 #54222c;
+    box-shadow:0 2px 0 #54222c;
 }
 
 .btn.light{
@@ -125,30 +104,9 @@ section{
     box-shadow:0 5px 0 #dfb9a7;
 }
 
-.doodle{
-    position:absolute;
-    font-size:30px;
-    opacity:.65;
-    animation:doodleFloat 4s ease-in-out infinite;
-}
-
-.d1{top:10%;left:7%}
-.d2{top:18%;right:8%;animation-delay:1s}
-.d3{bottom:12%;left:9%;animation-delay:2s}
-.d4{bottom:20%;right:9%;animation-delay:.5s}
-
-@keyframes doodleFloat{
-    0%,100%{
-        transform:translateY(0) rotate(-4deg);
-    }
-    50%{
-        transform:translateY(-12px) rotate(5deg);
-    }
-}
-
-/* ===============================
+/* =========================
    COVER
-================================ */
+========================= */
 
 #cover{
     background:
@@ -161,23 +119,11 @@ section{
     max-width:650px;
     margin:auto;
     background:var(--paper);
-    padding:50px 25px 45px;
+    padding:45px 20px 40px;
     text-align:center;
-    border-radius:9px;
+    border-radius:10px;
     box-shadow:0 25px 60px #713c4720;
     transform:rotate(-1deg);
-    position:relative;
-}
-
-.cover-card:before{
-    content:"";
-    position:absolute;
-    width:110px;
-    height:27px;
-    background:#e8b29aaa;
-    top:-13px;
-    left:50%;
-    transform:translateX(-50%) rotate(2deg);
 }
 
 .label{
@@ -189,7 +135,7 @@ section{
 
 .cover-title{
     font-family:'Caveat',cursive;
-    font-size:clamp(58px,13vw,100px);
+    font-size:clamp(60px,14vw,100px);
     color:var(--maroon);
     line-height:.85;
     margin:18px 0;
@@ -202,23 +148,23 @@ section{
     line-height:1.2;
 }
 
-/* ===============================
+/* =========================
    ENVELOPE
-================================ */
+========================= */
 
 .envelope-wrap{
     width:285px;
     height:190px;
-    margin:40px auto 30px;
+    margin:38px auto 28px;
     cursor:pointer;
     perspective:900px;
 }
 
 .envelope{
-    height:100%;
     width:100%;
-    background:#e9b09b;
+    height:100%;
     position:relative;
+    background:#e9b09b;
     border-radius:5px;
     box-shadow:0 15px 30px #713c4725;
 }
@@ -252,7 +198,7 @@ section{
     background:#f4c5b4;
     clip-path:polygon(0 0,50% 58%,100% 0);
     transform-origin:top;
-    transition:1s cubic-bezier(.2,.8,.2,1);
+    transition:1s;
 }
 
 .envelope.open .flap{
@@ -284,21 +230,20 @@ section{
     left:50%;
     transform:translate(-50%,-50%);
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
     font-size:25px;
-    box-shadow:0 5px 12px #5e263344;
     transition:.5s;
 }
 
 .envelope.open .seal{
     opacity:0;
-    transform:translate(-50%,-50%) scale(.4);
+    transform:translate(-50%,-50%) scale(.3);
 }
 
-/* ===============================
+/* =========================
    LETTER
-================================ */
+========================= */
 
 #letter{
     background:#f7dccb;
@@ -307,46 +252,23 @@ section{
 .paper{
     max-width:720px;
     margin:auto;
-    padding:45px 35px;
+    padding:35px 28px;
     background:var(--paper);
     box-shadow:0 20px 45px #713c4720;
-    position:relative;
-    transform:rotate(.4deg);
-}
-
-.paper:before,
-.paper:after{
-    content:"";
-    position:absolute;
-    width:90px;
-    height:23px;
-    background:#e7b39faa;
-}
-
-.paper:before{
-    top:-11px;
-    left:45px;
-    transform:rotate(-4deg);
-}
-
-.paper:after{
-    bottom:-11px;
-    right:45px;
-    transform:rotate(4deg);
 }
 
 .paper h2{
     font-family:'Caveat',cursive;
     font-size:50px;
     color:var(--maroon);
-    margin-bottom:20px;
+    margin-bottom:18px;
 }
 
 .paper p{
     font-family:'Caveat',cursive;
     font-size:22px;
-    line-height:1.55;
-    margin-bottom:14px;
+    line-height:1.5;
+    margin-bottom:12px;
 }
 
 .signature{
@@ -355,68 +277,57 @@ section{
     font-size:29px!important;
 }
 
-/* ===============================
+/* =========================
    BALLOONS
-================================ */
+========================= */
 
 #balloons{
-    background:
-    radial-gradient(circle at 10% 90%,#f6b9a8 0 12%,transparent 30%),
-    radial-gradient(circle at 90% 10%,#e7a0ad 0 12%,transparent 30%),
-    #fff0e3;
+    background:#fff0e3;
+}
+
+.section-title{
+    font-family:'Caveat',cursive;
+    font-size:clamp(48px,10vw,78px);
+    line-height:.95;
+    text-align:center;
+    color:var(--maroon);
+    margin-bottom:12px;
+}
+
+.subtitle{
+    max-width:560px;
+    margin:auto;
+    text-align:center;
+    color:#916d64;
+    font-size:15px;
+    line-height:1.7;
 }
 
 .balloon-area{
     max-width:700px;
-    margin:50px auto 40px;
+    margin:45px auto 30px;
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
-    gap:25px;
+    gap:24px;
 }
 
 .balloon{
-    width:75px;
-    height:100px;
+    width:70px;
+    height:95px;
     border-radius:50%;
     position:relative;
     cursor:pointer;
-    box-shadow:inset -12px -12px 15px #00000010;
-    animation:balloonFloat 3s ease-in-out infinite;
+    animation:float 3s ease-in-out infinite;
     transition:.2s;
 }
 
-.balloon:hover{
-    transform:scale(1.08);
-}
-
 .balloon:nth-child(1){background:#e59aa5}
-.balloon:nth-child(2){background:#f0c1a9;animation-delay:.4s}
-.balloon:nth-child(3){background:#c77b87;animation-delay:.8s}
-.balloon:nth-child(4){background:#e9ae9b;animation-delay:1.1s}
-.balloon:nth-child(5){background:#d88795;animation-delay:1.5s}
-.balloon:nth-child(6){background:#efc7a9;animation-delay:1.8s}
-
-.balloon:before{
-    content:"";
-    position:absolute;
-    bottom:-7px;
-    left:50%;
-    width:10px;
-    height:10px;
-    background:inherit;
-    transform:translateX(-50%) rotate(45deg);
-}
-
-.balloon:after{
-    content:"";
-    position:absolute;
-    top:98%;
-    left:50%;
-    height:90px;
-    width:1px;
-    background:#95655e;
-}
+.balloon:nth-child(2){background:#f0c1a9;animation-delay:.3s}
+.balloon:nth-child(3){background:#c77b87;animation-delay:.6s}
+.balloon:nth-child(4){background:#e9ae9b;animation-delay:.9s}
+.balloon:nth-child(5){background:#d88795;animation-delay:1.2s}
+.balloon:nth-child(6){background:#efc7a9;animation-delay:1.5s}
 
 .balloon span{
     position:absolute;
@@ -429,28 +340,45 @@ section{
     font-size:28px;
 }
 
-@keyframes balloonFloat{
-    0%,100%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-15px);
-    }
+.balloon:after{
+    content:"";
+    position:absolute;
+    top:98%;
+    left:50%;
+    height:75px;
+    width:1px;
+    background:#95655e;
 }
 
-/* ===============================
-   MESSAGE BOX
-================================ */
+.balloon.popped{
+    animation:pop .35s forwards;
+    pointer-events:none;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-14px)}
+}
+
+@keyframes pop{
+    0%{transform:scale(1);opacity:1}
+    60%{transform:scale(1.35);opacity:.6}
+    100%{transform:scale(0);opacity:0}
+}
+
+/* =========================
+   POPUP
+========================= */
 
 .overlay{
     position:fixed;
     inset:0;
     background:#422029aa;
-    backdrop-filter:blur(7px);
-    z-index:500;
+    backdrop-filter:blur(6px);
+    z-index:1000;
     display:none;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
     padding:20px;
 }
 
@@ -460,44 +388,30 @@ section{
 
 .note{
     width:100%;
-    max-width:480px;
+    max-width:470px;
     background:#fffaf0;
-    padding:45px 28px 32px;
-    position:relative;
+    padding:40px 28px 30px;
     box-shadow:0 25px 70px #32151c55;
-    animation:noteOpen .45s cubic-bezier(.2,.8,.2,1);
-    transform:rotate(-1deg);
+    animation:noteIn .4s ease;
 }
 
-@keyframes noteOpen{
+@keyframes noteIn{
     from{
         opacity:0;
-        transform:translateY(30px) rotate(-5deg) scale(.88);
+        transform:scale(.85);
     }
     to{
         opacity:1;
-        transform:translateY(0) rotate(-1deg) scale(1);
+        transform:scale(1);
     }
-}
-
-.note:before{
-    content:"";
-    position:absolute;
-    top:-11px;
-    left:50%;
-    width:90px;
-    height:23px;
-    background:#e6b29daa;
-    transform:translateX(-50%) rotate(2deg);
 }
 
 .close{
     position:absolute;
-    right:12px;
-    top:10px;
-    border:none;
+    right:18px;
+    top:12px;
+    border:0;
     background:none;
-    color:#8a5a57;
     font-size:25px;
     cursor:pointer;
 }
@@ -522,40 +436,31 @@ section{
     line-height:1.4;
 }
 
-/* ===============================
-   RAKHI PHOTO
-================================ */
+/* =========================
+   PHOTO PAGES
+========================= */
 
 #rakhi{
     background:#f8dfd0;
 }
 
-.rakhi-card{
-    max-width:650px;
-    margin:40px auto;
+#childhood{
+    background:#f3d2c0;
+}
+
+.photo-card{
+    max-width:620px;
+    margin:35px auto;
     background:var(--paper);
-    padding:35px;
+    padding:25px;
     box-shadow:0 20px 45px #713c4720;
-    position:relative;
-    transform:rotate(-.7deg);
 }
 
-.rakhi-card:before{
-    content:"";
-    position:absolute;
-    top:-12px;
-    left:50%;
-    width:100px;
-    height:25px;
-    background:#e5b09caa;
-    transform:translateX(-50%) rotate(3deg);
-}
-
-.rakhi-photo{
+.photo-box{
     width:100%;
     max-width:430px;
     aspect-ratio:4/3;
-    margin:10px auto 20px;
+    margin:auto;
     border:2px dashed #cf9586;
     background:#fae9dd;
     display:flex;
@@ -566,131 +471,45 @@ section{
     cursor:pointer;
 }
 
-.rakhi-photo .placeholder{
+.placeholder{
     text-align:center;
     font-family:'Caveat',cursive;
     color:#a06d64;
 }
 
-.rakhi-photo .placeholder strong{
+.placeholder strong{
     display:block;
     font-size:30px;
-    font-weight:600;
 }
 
-.rakhi-photo .placeholder span{
-    font-size:17px;
-}
-
-.rakhi-photo img{
-    display:none;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.rakhi-caption{
-    text-align:center;
-    font-family:'Caveat',cursive;
-    font-size:27px;
-    color:var(--maroon);
-}
-
-/* ===============================
-   MEMORIES
-================================ */
-
-#memories{
-    background:#f3d2c0;
-}
-
-.photo-grid{
-    max-width:720px;
-    margin:45px auto;
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:30px;
-}
-
-.photo-card{
-    background:#fffdf7;
-    padding:12px 12px 28px;
-    box-shadow:0 15px 35px #713c4720;
-    position:relative;
-}
-
-.photo-card:first-child{
-    transform:rotate(-3deg);
-}
-
-.photo-card:last-child{
-    transform:rotate(3deg);
-}
-
-.photo-card:before{
-    content:"";
-    position:absolute;
-    top:-11px;
-    left:50%;
-    width:80px;
-    height:22px;
-    background:#e5b09caa;
-    transform:translateX(-50%) rotate(2deg);
-}
-
-.photo-box{
-    width:100%;
-    aspect-ratio:1/1;
-    background:#f9e9dc;
-    border:2px dashed #ce9688;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    position:relative;
-    overflow:hidden;
-    cursor:pointer;
-}
-
-.photo-box .placeholder{
-    text-align:center;
-    font-family:'Caveat',cursive;
-    color:#a06d64;
-}
-
-.photo-box .placeholder strong{
-    display:block;
-    font-size:28px;
-}
-
-.photo-box .placeholder span{
-    font-family:'DM Sans',sans-serif;
-    font-size:11px;
+.placeholder span{
+    font-size:16px;
 }
 
 .photo-box img{
+    display:none;
     position:absolute;
     inset:0;
     width:100%;
     height:100%;
     object-fit:cover;
-    display:none;
 }
 
 .caption{
     text-align:center;
-    margin-top:8px;
+    margin-top:15px;
     font-family:'Caveat',cursive;
+    font-size:27px;
     color:var(--maroon);
-    font-size:25px;
 }
 
 input[type=file]{
     display:none;
 }
 
-/* ===============================
+/* =========================
    FINAL
-================================ */
+========================= */
 
 #final{
     background:
@@ -702,17 +521,16 @@ input[type=file]{
 .final-card{
     max-width:750px;
     margin:auto;
-    padding:45px 20px;
+    padding:30px 18px;
 }
 
 .rakhi-icon{
-    font-size:75px;
-    animation:doodleFloat 3s ease-in-out infinite;
+    font-size:70px;
 }
 
 .final-text{
     max-width:600px;
-    margin:25px auto;
+    margin:20px auto;
     font-family:'Caveat',cursive;
     font-size:28px;
     line-height:1.5;
@@ -732,96 +550,56 @@ input[type=file]{
     margin:20px 0 30px;
 }
 
-/* ===============================
-   FLOATING HEARTS
-================================ */
-
-.heart{
-    position:fixed;
-    z-index:600;
-    pointer-events:none;
-    animation:heartFall linear forwards;
-}
-
-@keyframes heartFall{
-    from{
-        transform:translateY(-30px) rotate(0);
-        opacity:1;
-    }
-    to{
-        transform:translateY(110vh) rotate(360deg);
-        opacity:0;
-    }
-}
-
-/* ===============================
+/* =========================
    MOBILE
-================================ */
+========================= */
 
 @media(max-width:600px){
 
-    section{
-        padding:55px 14px;
+    .page{
+        padding:15px 12px;
     }
 
     .cover-card{
-        padding:45px 16px;
+        padding:38px 15px;
     }
 
     .envelope-wrap{
-        width:250px;
-        height:168px;
+        width:245px;
+        height:165px;
     }
 
     .paper{
-        padding:38px 22px;
+        max-height:90vh;
+        overflow-y:auto;
+        padding:28px 20px;
+    }
+
+    .paper h2{
+        font-size:43px;
     }
 
     .paper p{
-        font-size:20px;
+        font-size:19px;
     }
 
     .balloon-area{
         gap:18px;
+        margin:35px auto 25px;
     }
 
     .balloon{
-        width:63px;
-        height:86px;
-    }
-
-    .photo-grid{
-        gap:15px;
+        width:62px;
+        height:85px;
     }
 
     .photo-card{
-        padding:8px 8px 23px;
-    }
-
-    .caption{
-        font-size:21px;
-    }
-
-    .rakhi-card{
-        padding:25px 18px;
+        padding:18px;
     }
 
     .note p{
         font-size:22px;
     }
-
-}
-
-@media(prefers-reduced-motion:reduce){
-
-    *,
-    *:before,
-    *:after{
-        animation:none!important;
-        scroll-behavior:auto!important;
-        transition:none!important;
-    }
-
 }
 
 </style>
@@ -831,16 +609,11 @@ input[type=file]{
 <body>
 
 
-<!-- =========================
-     COVER
-========================= -->
+<!-- ==================================================
+     PAGE 1 — COVER
+================================================== -->
 
-<section id="cover">
-
-<div class="doodle d1">🌸</div>
-<div class="doodle d2">♡</div>
-<div class="doodle d3">✦</div>
-<div class="doodle d4">🎀</div>
+<section class="page active" id="cover">
 
 <div class="container">
 
@@ -856,11 +629,10 @@ For You ❤️
 </div>
 
 <div class="cover-sub">
-Because you're not just my Bhaiya...
+For my little Babuu...
 <br>
-you're also my forever partner in crime 😂
+my forever partner in crime 😂❤️
 </div>
-
 
 <div class="envelope-wrap" onclick="openEnvelope()">
 
@@ -886,7 +658,6 @@ just for you ❤️
 
 </div>
 
-
 <button class="btn" onclick="openEnvelope()">
 Open 💌
 </button>
@@ -898,19 +669,18 @@ Open 💌
 </section>
 
 
+<!-- ==================================================
+     PAGE 2 — LETTER
+================================================== -->
 
-<!-- =========================
-     LETTER
-========================= -->
-
-<section id="letter">
+<section class="page" id="letter">
 
 <div class="container">
 
 <div class="paper">
 
 <h2>
-Dear <span id="brotherName">Bhaiya</span> ❤️
+Dear Babuu ❤️
 </h2>
 
 <p>
@@ -918,9 +688,9 @@ I don't always say it, but I'm really lucky to have you in my life.
 </p>
 
 <p>
-Growing up with you means a collection of silly fights,
-random laughs, family drama and so many memories
-that somehow became our favourite stories.
+Growing up with you means silly fights,
+random laughs, teasing each other
+and making memories that I'll always keep.
 </p>
 
 <p>
@@ -929,33 +699,33 @@ okay fine, <b>most of the time.</b> 😂
 </p>
 
 <p>
-But behind all the teasing and fights,
-I know you're someone I can always count on.
+But you're my little brother,
+and no matter how much we fight,
+I'll always have your back.
 </p>
 
 <p>
-Thank you for all the little things you do,
-for looking out for me and for making our family
-a little more fun.
+Thank you for being you
+and for making our family a little more fun.
 </p>
 
 <p>
-I hope we keep making ridiculous memories together
+I hope we keep making crazy memories together
 for many, many years.
 </p>
 
 <p>
 And yes...
 Rakhi means a treat too.
-I don't make the rules. 😌😂
+Don't even try to escape. 😌😂
 </p>
 
 <p class="signature">
-With lots of love,<br>
-<span id="senderName">Your favourite sibling</span> ❤️
+Lots of love,<br>
+Didi ❤️
 </p>
 
-<div style="text-align:center;margin-top:25px">
+<div style="text-align:center;margin-top:20px">
 
 <button class="btn" onclick="goTo('balloons')">
 Next → 🎈
@@ -970,12 +740,11 @@ Next → 🎈
 </section>
 
 
+<!-- ==================================================
+     PAGE 3 — BALLOONS
+================================================== -->
 
-<!-- =========================
-     BALLOONS
-========================= -->
-
-<section id="balloons">
+<section class="page" id="balloons">
 
 <div class="container">
 
@@ -984,40 +753,39 @@ A Few Little Things 🎈
 </h1>
 
 <p class="subtitle">
-Touch a balloon and discover a little note hidden inside. 👀❤️
+Tap every balloon and discover a little message from Didi. ❤️
 </p>
-
 
 <div class="balloon-area">
 
-<div class="balloon" onclick="showMessage(0)">
+<div class="balloon" onclick="showMessage(0,this)">
 <span>♡</span>
 </div>
 
-<div class="balloon" onclick="showMessage(1)">
+<div class="balloon" onclick="showMessage(1,this)">
 <span>✦</span>
 </div>
 
-<div class="balloon" onclick="showMessage(2)">
+<div class="balloon" onclick="showMessage(2,this)">
 <span>♡</span>
 </div>
 
-<div class="balloon" onclick="showMessage(3)">
+<div class="balloon" onclick="showMessage(3,this)">
 <span>✿</span>
 </div>
 
-<div class="balloon" onclick="showMessage(4)">
+<div class="balloon" onclick="showMessage(4,this)">
 <span>♥</span>
 </div>
 
-<div class="balloon" onclick="showMessage(5)">
+<div class="balloon" onclick="showMessage(5,this)">
 <span>✦</span>
 </div>
 
 </div>
 
-
-<div style="text-align:center;margin-top:50px">
+<div id="balloonNext"
+style="text-align:center;margin-top:35px;display:none">
 
 <button class="btn" onclick="goTo('rakhi')">
 Next → 🎀
@@ -1030,23 +798,24 @@ Next → 🎀
 </section>
 
 
-
-<!-- =========================
-     MESSAGE POPUP
-========================= -->
+<!-- ==================================================
+     BALLOON MESSAGE POPUP
+================================================== -->
 
 <div class="overlay" id="messageOverlay">
 
-<div class="note">
+<div class="note" style="position:relative">
 
-<button class="close" onclick="closeMessage()">×</button>
+<button class="close" onclick="closeMessage()">
+×
+</button>
 
 <div class="note-small">
-A little note for you
+A little note for Babuu
 </div>
 
-<h3 id="messageTitle">
-Hey Bhaiya ❤️
+<h3>
+Hey Babuu ❤️
 </h3>
 
 <p id="messageText"></p>
@@ -1054,7 +823,7 @@ Hey Bhaiya ❤️
 <div style="text-align:center;margin-top:25px">
 
 <button class="btn light" onclick="closeMessage()">
-One more? 🎈
+Okayy ❤️
 </button>
 
 </div>
@@ -1064,12 +833,11 @@ One more? 🎈
 </div>
 
 
+<!-- ==================================================
+     PAGE 4 — RAKHI PHOTO
+================================================== -->
 
-<!-- =========================
-     RAKHI PHOTO
-========================= -->
-
-<section id="rakhi">
+<section class="page" id="rakhi">
 
 <div class="container">
 
@@ -1078,13 +846,12 @@ Something I Got For You 🎁
 </h1>
 
 <p class="subtitle">
-A little Rakhi, chosen specially for you. ❤️
+A little Rakhi, chosen specially for my Babuu. ❤️
 </p>
 
+<div class="photo-card">
 
-<div class="rakhi-card">
-
-<label class="rakhi-photo" for="rakhiPhoto">
+<label class="photo-box" for="rakhiPhoto">
 
 <div class="placeholder" id="rakhiPlaceholder">
 
@@ -1109,18 +876,16 @@ accept="image/*"
 onchange="previewImage(this,'rakhiPreview','rakhiPlaceholder')"
 >
 
-
-<div class="rakhi-caption">
+<div class="caption">
 Saw this and thought of you 🥹❤️
 </div>
 
 </div>
 
+<div style="text-align:center;margin-top:25px">
 
-<div style="text-align:center;margin-top:35px">
-
-<button class="btn" onclick="goTo('memories')">
-Our Memories 📸
+<button class="btn" onclick="goTo('childhood')">
+Next → 👶🏻
 </button>
 
 </div>
@@ -1130,104 +895,56 @@ Our Memories 📸
 </section>
 
 
+<!-- ==================================================
+     PAGE 5 — CHILDHOOD PHOTO
+================================================== -->
 
-<!-- =========================
-     MEMORIES
-========================= -->
-
-<section id="memories">
+<section class="page" id="childhood">
 
 <div class="container">
 
 <h1 class="section-title">
-Our Memories 📸
+A Little Throwback 👶🏻❤️
 </h1>
 
 <p class="subtitle">
-Add your two favourite pictures and make this little scrapbook yours. ❤️
+One childhood picture of my little Babuu. 🥹
 </p>
 
-
-<div class="photo-grid">
-
-
-<!-- PHOTO 1 -->
-
 <div class="photo-card">
 
-<label class="photo-box" for="photo1">
+<label class="photo-box" for="childhoodPhoto">
 
-<div class="placeholder" id="placeholder1">
+<div class="placeholder" id="childhoodPlaceholder">
 
 <strong>
-＋ Add Photo
+＋ Add Childhood Photo
 </strong>
 
 <span>
-Choose from gallery
+Choose a childhood picture 📸
 </span>
 
 </div>
 
-<img id="preview1">
+<img id="childhoodPreview">
 
 </label>
 
 <input
 type="file"
-id="photo1"
+id="childhoodPhoto"
 accept="image/*"
-onchange="previewImage(this,'preview1','placeholder1')"
+onchange="previewImage(this,'childhoodPreview','childhoodPlaceholder')"
 >
 
 <div class="caption">
-One of our favourite memories ❤️
+Look how little Babuu was 🥹❤️
 </div>
 
 </div>
 
-
-
-<!-- PHOTO 2 -->
-
-<div class="photo-card">
-
-<label class="photo-box" for="photo2">
-
-<div class="placeholder" id="placeholder2">
-
-<strong>
-＋ Add Photo
-</strong>
-
-<span>
-Choose from gallery
-</span>
-
-</div>
-
-<img id="preview2">
-
-</label>
-
-<input
-type="file"
-id="photo2"
-accept="image/*"
-onchange="previewImage(this,'preview2','placeholder2')"
->
-
-<div class="caption">
-Just us being us 😂
-</div>
-
-</div>
-
-
-</div>
-
-
-<div style="text-align:center;margin-top:35px">
+<div style="text-align:center;margin-top:25px">
 
 <button class="btn" onclick="goTo('final')">
 One Last Thing ❤️
@@ -1240,12 +957,11 @@ One Last Thing ❤️
 </section>
 
 
+<!-- ==================================================
+     PAGE 6 — FINAL
+================================================== -->
 
-<!-- =========================
-     FINAL
-========================= -->
-
-<section id="final">
+<section class="page" id="final">
 
 <div class="container">
 
@@ -1256,31 +972,20 @@ One Last Thing ❤️
 </div>
 
 <p class="final-text">
-
 Some bonds don't need perfect words...
-
 <br>
-
 they just grow stronger with every silly fight,
 every laugh and every memory. ❤️
-
 </p>
 
-
 <div class="final-title">
-
 Happy Raksha<br>
-Bandhan <span id="finalBrother">Bhaiya</span> ❤️
-
+Bandhan Babuu ❤️
 </div>
-
 
 <div class="from">
-
-— <span id="finalSender">Your favourite sibling</span>
-
+— Didi ❤️
 </div>
-
 
 <button class="btn" onclick="shareWebsite()">
 Share This Surprise 💌
@@ -1299,199 +1004,131 @@ Share This Surprise 💌
 </section>
 
 
-
 <script>
 
-/* ===============================
-   PERSONAL DETAILS
-================================ */
-
-let brother = "Bhaiya";
-let sender = "Your favourite sibling";
-
-let started = false;
-
-
-/* ===============================
-   OPEN ENVELOPE
-================================ */
-
-function openEnvelope(){
-
-    if(started) return;
-
-    started = true;
-
-    const envelope =
-        document.getElementById("envelope");
-
-    envelope.classList.add("open");
-
-    createHearts(20);
-
-    setTimeout(function(){
-
-        let brotherInput =
-            prompt(
-                "Bhaiya ka naam kya likhna hai? ❤️",
-                ""
-            );
-
-        if(
-            brotherInput &&
-            brotherInput.trim() !== ""
-        ){
-
-            brother = brotherInput.trim();
-
-        }
-
-
-        let senderInput =
-            prompt(
-                "Apna naam kya likhna hai? 💌",
-                ""
-            );
-
-        if(
-            senderInput &&
-            senderInput.trim() !== ""
-        ){
-
-            sender = senderInput.trim();
-
-        }
-
-
-        document.getElementById(
-            "brotherName"
-        ).textContent = brother;
-
-        document.getElementById(
-            "finalBrother"
-        ).textContent = brother;
-
-        document.getElementById(
-            "senderName"
-        ).textContent = sender;
-
-        document.getElementById(
-            "finalSender"
-        ).textContent = sender;
-
-
-        setTimeout(function(){
-
-            goTo("letter");
-
-        },400);
-
-    },900);
-
-}
-
-
-/* ===============================
-   SMOOTH SCROLL
-================================ */
+/* ==================================================
+   GO TO ONE PAGE ONLY
+================================================== */
 
 function goTo(id){
 
-    const element =
+    document.querySelectorAll(".page").forEach(function(page){
+
+        page.classList.remove("active");
+
+    });
+
+    const nextPage =
         document.getElementById(id);
 
-    if(element){
+    if(nextPage){
 
-        element.scrollIntoView({
-            behavior:"smooth"
-        });
+        nextPage.classList.add("active");
+
+        nextPage.scrollTop = 0;
 
     }
 
 }
 
 
-/* ===============================
-   BALLOON MESSAGES
-================================ */
+/* ==================================================
+   ENVELOPE
+================================================== */
 
-const messages = [
+let envelopeOpened = false;
 
-"Thanks for being my built-in protector... even when I didn't ask. 😭❤️",
+function openEnvelope(){
 
-"You're annoying, but unfortunately you're still one of my favourite people. 😂❤️",
+    if(envelopeOpened) return;
 
-"Some of my best childhood memories have you somewhere in them. 🥹❤️",
+    envelopeOpened = true;
 
-"Official reminder: Rakhi means a treat too. Don't forget. 👀😂",
+    document
+        .getElementById("envelope")
+        .classList.add("open");
 
-"Thank you for all the little things you do that I don't always say thank you for. ❤️",
+    createHearts(18);
 
-"Growing up together = lots of fights + even more unforgettable memories. 🫶🏻"
+    setTimeout(function(){
 
-];
+        goTo("letter");
 
-
-function showMessage(index){
-
-    document.getElementById(
-        "messageTitle"
-    ).textContent =
-        "Hey " + brother + " ❤️";
-
-
-    document.getElementById(
-        "messageText"
-    ).textContent =
-        messages[index];
-
-
-    document.getElementById(
-        "messageOverlay"
-    ).classList.add("show");
-
-
-    createHearts(8);
+    },1200);
 
 }
 
 
-/* ===============================
-   CLOSE MESSAGE
-================================ */
+/* ==================================================
+   BALLOON MESSAGES
+================================================== */
+
+const messages = [
+
+"You're my little brother, so annoying you are literally a full-time job. 😂❤️",
+
+"No matter how much we fight, I'll always be there for you. 🥹❤️",
+
+"Some of my favourite memories have little Babuu somewhere in them. ❤️",
+
+"Official reminder: Rakhi = treat. This is non-negotiable. 👀😂",
+
+"You'll always be my little brother, even when you grow older. 🫶🏻",
+
+"Love you Babuu. Don't let this make you too emotional though. 😂❤️"
+
+];
+
+let poppedBalloons = 0;
+
+function showMessage(index,balloon){
+
+    document.getElementById("messageText")
+        .textContent = messages[index];
+
+    document.getElementById("messageOverlay")
+        .classList.add("show");
+
+    if(!balloon.classList.contains("popped")){
+
+        balloon.classList.add("popped");
+
+        poppedBalloons++;
+
+    }
+
+    createHearts(7);
+
+    if(poppedBalloons === 6){
+
+        setTimeout(function(){
+
+            document.getElementById("balloonNext")
+                .style.display = "block";
+
+        },400);
+
+    }
+
+}
+
+
+/* ==================================================
+   CLOSE POPUP
+================================================== */
 
 function closeMessage(){
 
     document
-    .getElementById("messageOverlay")
-    .classList.remove("show");
+        .getElementById("messageOverlay")
+        .classList.remove("show");
 
 }
 
 
-/* ===============================
-   BACKGROUND CLICK
-================================ */
-
-document
-.getElementById("messageOverlay")
-.addEventListener(
-    "click",
-    function(event){
-
-        if(event.target === this){
-
-            closeMessage();
-
-        }
-
-    }
-);
-
-
-/* ===============================
-   IMAGE PREVIEW
-================================ */
+/* ==================================================
+   PHOTO PREVIEW
+================================================== */
 
 function previewImage(
     input,
@@ -1504,17 +1141,14 @@ function previewImage(
 
     if(!file) return;
 
-
     const image =
         document.getElementById(imageId);
 
     const placeholder =
         document.getElementById(placeholderId);
 
-
     const reader =
         new FileReader();
-
 
     reader.onload =
         function(event){
@@ -1530,122 +1164,113 @@ function previewImage(
 
         };
 
-
     reader.readAsDataURL(file);
 
 }
 
 
-/* ===============================
-   FLOATING HEARTS
-================================ */
+/* ==================================================
+   HEARTS
+================================================== */
 
 function createHearts(amount){
 
-    const symbols = [
+    const symbols=[
         "♥",
         "♡",
         "✦",
         "🌸"
     ];
 
-
-    for(
-        let i=0;
-        i<amount;
-        i++
-    ){
+    for(let i=0;i<amount;i++){
 
         const heart =
             document.createElement("div");
 
-
-        heart.className =
-            "heart";
-
-
         heart.textContent =
             symbols[
                 Math.floor(
-                    Math.random() *
-                    symbols.length
+                    Math.random()*symbols.length
                 )
             ];
 
+        heart.style.position="fixed";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.top="-20px";
+        heart.style.zIndex="2000";
+        heart.style.pointerEvents="none";
+        heart.style.fontSize=
+            14+Math.random()*18+"px";
+        heart.style.color="#9e4c5d";
 
-        heart.style.left =
-            Math.random()*100 +
-            "vw";
+        heart.style.animation=
+            "heartFall "+
+            (4+Math.random()*3)+
+            "s linear forwards";
 
+        document.body.appendChild(heart);
 
-        heart.style.top =
-            "-20px";
+        setTimeout(function(){
 
+            heart.remove();
 
-        heart.style.fontSize =
-            14 +
-            Math.random()*18 +
-            "px";
-
-
-        heart.style.color =
-            "#9e4c5d";
-
-
-        heart.style.animationDuration =
-            4 +
-            Math.random()*4 +
-            "s";
-
-
-        document.body.appendChild(
-            heart
-        );
-
-
-        setTimeout(
-            function(){
-
-                heart.remove();
-
-            },
-            8000
-        );
+        },7500);
 
     }
 
 }
 
 
-/* ===============================
+/* ==================================================
+   HEART ANIMATION
+================================================== */
+
+const heartStyle =
+document.createElement("style");
+
+heartStyle.textContent=`
+
+@keyframes heartFall{
+
+    from{
+        transform:translateY(-20px) rotate(0deg);
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
+
+}
+
+`;
+
+document.head.appendChild(heartStyle);
+
+
+/* ==================================================
    SHARE
-================================ */
+================================================== */
 
 async function shareWebsite(){
 
-    const shareData = {
+    const shareData={
 
-        title:
-            "Something For You ❤️",
+        title:"Something For Babuu ❤️",
 
         text:
-            "I made a little Raksha Bandhan surprise for you 🎀❤️",
+        "I made a little Raksha Bandhan surprise for you 🎀❤️",
 
-        url:
-            window.location.href
+        url:window.location.href
 
     };
 
-
-    if(
-        navigator.share
-    ){
+    if(navigator.share){
 
         try{
 
-            await navigator.share(
-                shareData
-            );
+            await navigator.share(shareData);
 
         }catch(error){}
 
@@ -1659,17 +1284,14 @@ async function shareWebsite(){
                 window.location.href
             );
 
-
             alert(
                 "Surprise link copied! ❤️"
             );
 
-        }
-
-        catch(error){
+        }catch(error){
 
             alert(
-                "Copy this page link and send it to your Bhaiya ❤️"
+                "Copy this link and send it to Babuu ❤️"
             );
 
         }
@@ -1679,17 +1301,15 @@ async function shareWebsite(){
 }
 
 
-/* ===============================
-   ESC KEY
-================================ */
+/* ==================================================
+   CLOSE POPUP WITH ESC
+================================================== */
 
 document.addEventListener(
     "keydown",
     function(event){
 
-        if(
-            event.key === "Escape"
-        ){
+        if(event.key==="Escape"){
 
             closeMessage();
 
