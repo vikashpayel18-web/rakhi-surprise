@@ -18,29 +18,12 @@
     box-sizing:border-box;
 }
 
-:root{
-    --cream:#fff8ed;
-    --paper:#fffdf7;
-    --maroon:#762f3c;
-    --brown:#704b43;
-    --rose:#c96d7c;
-}
-
-html,body{
-    width:100%;
-    height:100%;
-}
-
 body{
-    background:#f3d5c5;
-    color:var(--brown);
+    background:#f7dccb;
+    color:#704b43;
     font-family:'DM Sans',sans-serif;
     overflow:hidden;
 }
-
-/* =========================
-   PAGE SYSTEM
-========================= */
 
 .page{
     position:fixed;
@@ -50,14 +33,12 @@ body{
     display:none;
     align-items:center;
     justify-content:center;
-    padding:20px 15px;
+    padding:18px;
     overflow-y:auto;
-    z-index:1;
 }
 
 .page.active{
     display:flex;
-    z-index:10;
     animation:pageIn .5s ease;
 }
 
@@ -78,15 +59,11 @@ body{
     margin:auto;
 }
 
-/* =========================
-   BUTTON
-========================= */
-
 .btn{
     border:0;
     padding:14px 28px;
     border-radius:50px;
-    background:var(--maroon);
+    background:#762f3c;
     color:white;
     font-size:15px;
     cursor:pointer;
@@ -98,32 +75,23 @@ body{
     box-shadow:0 2px 0 #54222c;
 }
 
-.btn.light{
-    background:#fff3e7;
-    color:var(--maroon);
-    box-shadow:0 5px 0 #dfb9a7;
-}
-
-/* =========================
-   COVER
-========================= */
+/* COVER */
 
 #cover{
     background:
     radial-gradient(circle at 15% 20%,#ffe8d7 0 12%,transparent 32%),
     radial-gradient(circle at 90% 80%,#f5bbc4 0 12%,transparent 32%),
-    var(--cream);
+    #fff8ed;
 }
 
 .cover-card{
     max-width:650px;
     margin:auto;
-    background:var(--paper);
-    padding:45px 20px 40px;
+    background:#fffdf7;
+    padding:42px 18px 38px;
     text-align:center;
     border-radius:10px;
     box-shadow:0 25px 60px #713c4720;
-    transform:rotate(-1deg);
 }
 
 .label{
@@ -136,7 +104,7 @@ body{
 .cover-title{
     font-family:'Caveat',cursive;
     font-size:clamp(60px,14vw,100px);
-    color:var(--maroon);
+    color:#762f3c;
     line-height:.85;
     margin:18px 0;
 }
@@ -148,13 +116,11 @@ body{
     line-height:1.2;
 }
 
-/* =========================
-   ENVELOPE
-========================= */
+/* ENVELOPE */
 
 .envelope-wrap{
-    width:285px;
-    height:190px;
+    width:270px;
+    height:180px;
     margin:38px auto 28px;
     cursor:pointer;
     perspective:900px;
@@ -179,7 +145,7 @@ body{
 .letter-preview{
     position:absolute;
     width:88%;
-    height:145px;
+    height:140px;
     left:6%;
     bottom:15px;
     background:#fffdf7;
@@ -187,7 +153,7 @@ body{
     padding:20px;
     font-family:'Caveat',cursive;
     font-size:21px;
-    color:var(--maroon);
+    color:#762f3c;
     transition:1s;
 }
 
@@ -206,7 +172,7 @@ body{
 }
 
 .envelope.open .letter-preview{
-    transform:translateY(-105px);
+    transform:translateY(-100px);
 }
 
 .envelope-front{
@@ -241,9 +207,7 @@ body{
     transform:translate(-50%,-50%) scale(.3);
 }
 
-/* =========================
-   LETTER
-========================= */
+/* LETTER */
 
 #letter{
     background:#f7dccb;
@@ -252,34 +216,32 @@ body{
 .paper{
     max-width:720px;
     margin:auto;
-    padding:35px 28px;
-    background:var(--paper);
+    padding:32px 25px;
+    background:#fffdf7;
     box-shadow:0 20px 45px #713c4720;
 }
 
 .paper h2{
     font-family:'Caveat',cursive;
-    font-size:50px;
-    color:var(--maroon);
+    font-size:48px;
+    color:#762f3c;
     margin-bottom:18px;
 }
 
 .paper p{
     font-family:'Caveat',cursive;
-    font-size:22px;
-    line-height:1.5;
-    margin-bottom:12px;
+    font-size:21px;
+    line-height:1.45;
+    margin-bottom:11px;
 }
 
 .signature{
     text-align:right;
-    color:var(--rose);
-    font-size:29px!important;
+    color:#c96d7c;
+    font-size:28px!important;
 }
 
-/* =========================
-   BALLOONS
-========================= */
+/* BALLOONS */
 
 #balloons{
     background:#fff0e3;
@@ -290,7 +252,7 @@ body{
     font-size:clamp(48px,10vw,78px);
     line-height:.95;
     text-align:center;
-    color:var(--maroon);
+    color:#762f3c;
     margin-bottom:12px;
 }
 
@@ -300,21 +262,21 @@ body{
     text-align:center;
     color:#916d64;
     font-size:15px;
-    line-height:1.7;
+    line-height:1.6;
 }
 
 .balloon-area{
-    max-width:700px;
-    margin:45px auto 30px;
+    max-width:650px;
+    margin:40px auto 25px;
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
-    gap:24px;
+    gap:22px;
 }
 
 .balloon{
-    width:70px;
-    height:95px;
+    width:68px;
+    height:92px;
     border-radius:50%;
     position:relative;
     cursor:pointer;
@@ -322,11 +284,11 @@ body{
 }
 
 .balloon:nth-child(1){background:#e59aa5}
-.balloon:nth-child(2){background:#f0c1a9;animation-delay:.3s}
-.balloon:nth-child(3){background:#c77b87;animation-delay:.6s}
-.balloon:nth-child(4){background:#e9ae9b;animation-delay:.9s}
-.balloon:nth-child(5){background:#d88795;animation-delay:1.2s}
-.balloon:nth-child(6){background:#efc7a9;animation-delay:1.5s}
+.balloon:nth-child(2){background:#f0c1a9}
+.balloon:nth-child(3){background:#c77b87}
+.balloon:nth-child(4){background:#e9ae9b}
+.balloon:nth-child(5){background:#d88795}
+.balloon:nth-child(6){background:#efc7a9}
 
 .balloon span{
     position:absolute;
@@ -335,4 +297,786 @@ body{
     align-items:center;
     justify-content:center;
     color:white;
-    font-family
+    font-family:'Caveat',cursive;
+    font-size:28px;
+}
+
+.balloon:after{
+    content:"";
+    position:absolute;
+    top:98%;
+    left:50%;
+    height:70px;
+    width:1px;
+    background:#95655e;
+}
+
+.balloon.popped{
+    animation:pop .35s forwards;
+    pointer-events:none;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-13px)}
+}
+
+@keyframes pop{
+    0%{transform:scale(1);opacity:1}
+    60%{transform:scale(1.3);opacity:.6}
+    100%{transform:scale(0);opacity:0}
+}
+
+/* POPUP */
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:#422029aa;
+    backdrop-filter:blur(6px);
+    z-index:1000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.overlay.show{
+    display:flex;
+}
+
+.note{
+    width:100%;
+    max-width:470px;
+    background:#fffaf0;
+    padding:38px 28px 30px;
+    box-shadow:0 25px 70px #32151c55;
+    position:relative;
+    animation:noteIn .4s ease;
+}
+
+@keyframes noteIn{
+    from{
+        opacity:0;
+        transform:scale(.85);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.close{
+    position:absolute;
+    right:15px;
+    top:10px;
+    border:0;
+    background:none;
+    font-size:25px;
+}
+
+.note-small{
+    color:#ad7771;
+    text-transform:uppercase;
+    font-size:11px;
+    letter-spacing:2px;
+}
+
+.note h3{
+    font-family:'Caveat',cursive;
+    color:#762f3c;
+    font-size:43px;
+    margin:10px 0;
+}
+
+.note p{
+    font-family:'Caveat',cursive;
+    font-size:24px;
+    line-height:1.4;
+}
+
+/* PHOTO PAGES */
+
+#rakhi{
+    background:#f8dfd0;
+}
+
+#childhood{
+    background:#f3d2c0;
+}
+
+.photo-card{
+    max-width:620px;
+    margin:30px auto;
+    background:#fffdf7;
+    padding:20px;
+    box-shadow:0 20px 45px #713c4720;
+}
+
+.photo-box{
+    width:100%;
+    max-width:450px;
+    aspect-ratio:4/3;
+    margin:auto;
+    background:#fae9dd;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+.photo-box img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.caption{
+    text-align:center;
+    margin-top:15px;
+    font-family:'Caveat',cursive;
+    font-size:27px;
+    color:#762f3c;
+}
+
+/* FINAL */
+
+#final{
+    background:
+    radial-gradient(circle at 50% 20%,#ffe6d5,transparent 38%),
+    #fff4e8;
+    text-align:center;
+}
+
+.final-card{
+    max-width:750px;
+    margin:auto;
+    padding:30px 18px;
+}
+
+.rakhi-icon{
+    font-size:70px;
+}
+
+.final-text{
+    max-width:600px;
+    margin:20px auto;
+    font-family:'Caveat',cursive;
+    font-size:28px;
+    line-height:1.5;
+}
+
+.final-title{
+    font-family:'Caveat',cursive;
+    color:#762f3c;
+    font-size:clamp(48px,10vw,82px);
+    line-height:.95;
+}
+
+.from{
+    font-family:'Caveat',cursive;
+    color:#b45f6c;
+    font-size:31px;
+    margin:20px 0 30px;
+}
+
+/* HEARTS */
+
+.heart{
+    position:fixed;
+    top:-20px;
+    z-index:2000;
+    pointer-events:none;
+    animation:heartFall linear forwards;
+}
+
+@keyframes heartFall{
+    from{
+        transform:translateY(-20px) rotate(0);
+        opacity:1;
+    }
+    to{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .page{
+        padding:14px 12px;
+    }
+
+    .cover-card{
+        padding:35px 14px;
+    }
+
+    .envelope-wrap{
+        width:245px;
+        height:165px;
+    }
+
+    .paper{
+        max-height:92vh;
+        overflow-y:auto;
+        padding:27px 20px;
+    }
+
+    .paper h2{
+        font-size:42px;
+    }
+
+    .paper p{
+        font-size:19px;
+    }
+
+    .balloon-area{
+        gap:17px;
+        margin:32px auto 22px;
+    }
+
+    .balloon{
+        width:60px;
+        height:83px;
+    }
+
+    .photo-card{
+        padding:16px;
+    }
+
+    .final-text{
+        font-size:24px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- PAGE 1 -->
+
+<section class="page active" id="cover">
+
+<div class="container">
+
+<div class="cover-card">
+
+<div class="label">
+A tiny surprise made with love
+</div>
+
+<div class="cover-title">
+Something<br>
+For You ❤️
+</div>
+
+<div class="cover-sub">
+For my little Babuu...
+<br>
+my forever partner in crime 😂❤️
+</div>
+
+<div class="envelope-wrap" onclick="openEnvelope()">
+
+<div class="envelope" id="envelope">
+
+<div class="envelope-back"></div>
+
+<div class="letter-preview">
+A little something...
+<br>
+just for you ❤️
+</div>
+
+<div class="flap"></div>
+
+<div class="envelope-front"></div>
+
+<div class="seal">
+♡
+</div>
+
+</div>
+
+</div>
+
+<button class="btn" onclick="openEnvelope()">
+Open 💌
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PAGE 2 -->
+
+<section class="page" id="letter">
+
+<div class="container">
+
+<div class="paper">
+
+<h2>
+Dear Babuu ❤️
+</h2>
+
+<p>
+I don't always say it, but I'm really lucky to have you in my life.
+</p>
+
+<p>
+Growing up with you means silly fights,
+random laughs, teasing each other
+and making memories that I'll always keep.
+</p>
+
+<p>
+You're annoying sometimes...
+okay fine, <b>most of the time.</b> 😂
+</p>
+
+<p>
+But you're my little brother,
+and no matter how much we fight,
+I'll always have your back.
+</p>
+
+<p>
+Thank you for being you
+and for making our family a little more fun.
+</p>
+
+<p>
+I hope we keep making crazy memories together
+for many, many years.
+</p>
+
+<p>
+And yes...
+Rakhi means a treat too.
+Don't even try to escape. 😌😂
+</p>
+
+<p class="signature">
+Lots of love,<br>
+Didi ❤️
+</p>
+
+<div style="text-align:center;margin-top:18px">
+
+<button class="btn" onclick="goTo('balloons')">
+Next → 🎈
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PAGE 3 -->
+
+<section class="page" id="balloons">
+
+<div class="container">
+
+<h1 class="section-title">
+A Few Little Things 🎈
+</h1>
+
+<p class="subtitle">
+Tap every balloon and discover a little message from Didi. ❤️
+</p>
+
+<div class="balloon-area">
+
+<div class="balloon" onclick="showMessage(0,this)">
+<span>♡</span>
+</div>
+
+<div class="balloon" onclick="showMessage(1,this)">
+<span>✦</span>
+</div>
+
+<div class="balloon" onclick="showMessage(2,this)">
+<span>♡</span>
+</div>
+
+<div class="balloon" onclick="showMessage(3,this)">
+<span>✿</span>
+</div>
+
+<div class="balloon" onclick="showMessage(4,this)">
+<span>♥</span>
+</div>
+
+<div class="balloon" onclick="showMessage(5,this)">
+<span>✦</span>
+</div>
+
+</div>
+
+<div id="balloonNext"
+style="text-align:center;margin-top:30px;display:none">
+
+<button class="btn" onclick="goTo('rakhi')">
+Next → 🎀
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- POPUP -->
+
+<div class="overlay" id="messageOverlay">
+
+<div class="note">
+
+<button class="close" onclick="closeMessage()">×</button>
+
+<div class="note-small">
+A little note for Babuu
+</div>
+
+<h3>
+Hey Babuu ❤️
+</h3>
+
+<p id="messageText"></p>
+
+<div style="text-align:center;margin-top:25px">
+
+<button class="btn" onclick="closeMessage()">
+Okayy ❤️
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PAGE 4 RAKHI -->
+
+<section class="page" id="rakhi">
+
+<div class="container">
+
+<h1 class="section-title">
+Something I Got For You 🎁
+</h1>
+
+<p class="subtitle">
+A little Rakhi, chosen specially for my Babuu. ❤️
+</p>
+
+<div class="photo-card">
+
+<div class="photo-box">
+
+<img src="rakhi.jpeg" alt="Rakhi">
+
+</div>
+
+<div class="caption">
+Saw this and thought of you 🥹❤️
+</div>
+
+</div>
+
+<div style="text-align:center;margin-top:25px">
+
+<button class="btn" onclick="goTo('childhood')">
+Next → 👶🏻
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PAGE 5 CHILDHOOD -->
+
+<section class="page" id="childhood">
+
+<div class="container">
+
+<h1 class="section-title">
+A Little Throwback 👶🏻❤️
+</h1>
+
+<p class="subtitle">
+One childhood picture of my little Babuu. 🥹
+</p>
+
+<div class="photo-card">
+
+<div class="photo-box">
+
+<img src="babuu childhood.jpeg" alt="Babuu childhood">
+
+</div>
+
+<div class="caption">
+Look how little Babuu was 🥹❤️
+</div>
+
+</div>
+
+<div style="text-align:center;margin-top:25px">
+
+<button class="btn" onclick="goTo('final')">
+One Last Thing ❤️
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PAGE 6 FINAL -->
+
+<section class="page" id="final">
+
+<div class="container">
+
+<div class="final-card">
+
+<div class="rakhi-icon">
+🪢
+</div>
+
+<p class="final-text">
+Some bonds don't need perfect words...
+<br>
+they just grow stronger with every silly fight,
+every laugh and every memory. ❤️
+</p>
+
+<div class="final-title">
+Happy Raksha<br>
+Bandhan Babuu ❤️
+</div>
+
+<div class="from">
+— Didi ❤️
+</div>
+
+<button class="btn" onclick="shareWebsite()">
+Share This Surprise 💌
+</button>
+
+<br><br>
+
+<button class="btn" onclick="goTo('cover')">
+↻ Replay Our Story
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+let envelopeOpened=false;
+
+function goTo(id){
+
+    document.querySelectorAll(".page").forEach(function(page){
+        page.classList.remove("active");
+    });
+
+    const next=document.getElementById(id);
+
+    if(next){
+        next.classList.add("active");
+        next.scrollTop=0;
+    }
+
+}
+
+function openEnvelope(){
+
+    if(envelopeOpened) return;
+
+    envelopeOpened=true;
+
+    document.getElementById("envelope")
+        .classList.add("open");
+
+    createHearts(18);
+
+    setTimeout(function(){
+        goTo("letter");
+    },1200);
+
+}
+
+
+const messages=[
+
+"You're my little brother, so annoying you are literally a full-time job. 😂❤️",
+
+"No matter how much we fight, I'll always be there for you. 🥹❤️",
+
+"Some of my favourite memories have little Babuu somewhere in them. ❤️",
+
+"Official reminder: Rakhi = treat. This is non-negotiable. 👀😂",
+
+"You'll always be my little brother, even when you grow older. 🫶🏻",
+
+"Love you Babuu. Don't let this make you too emotional though. 😂❤️"
+
+];
+
+let poppedBalloons=0;
+
+function showMessage(index,balloon){
+
+    document.getElementById("messageText")
+        .textContent=messages[index];
+
+    document.getElementById("messageOverlay")
+        .classList.add("show");
+
+    if(!balloon.classList.contains("popped")){
+
+        balloon.classList.add("popped");
+
+        poppedBalloons++;
+
+    }
+
+    createHearts(7);
+
+    if(poppedBalloons===6){
+
+        setTimeout(function(){
+
+            document.getElementById("balloonNext")
+                .style.display="block";
+
+        },500);
+
+    }
+
+}
+
+function closeMessage(){
+
+    document.getElementById("messageOverlay")
+        .classList.remove("show");
+
+}
+
+
+function createHearts(amount){
+
+    const symbols=["♥","♡","✦","🌸"];
+
+    for(let i=0;i<amount;i++){
+
+        const heart=document.createElement("div");
+
+        heart.className="heart";
+
+        heart.textContent=
+            symbols[Math.floor(Math.random()*symbols.length)];
+
+        heart.style.left=
+            Math.random()*100+"vw";
+
+        heart.style.fontSize=
+            14+Math.random()*18+"px";
+
+        heart.style.color="#9e4c5d";
+
+        heart.style.animationDuration=
+            4+Math.random()*3+"s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(function(){
+            heart.remove();
+        },7500);
+
+    }
+
+}
+
+
+async function shareWebsite(){
+
+    const shareData={
+
+        title:"Something For Babuu ❤️",
+
+        text:
+        "I made a little Raksha Bandhan surprise for you 🎀❤️",
+
+        url:window.location.href
+
+    };
+
+    if(navigator.share){
+
+        try{
+            await navigator.share(shareData);
+        }catch(error){}
+
+    }else{
+
+        try{
+
+            await navigator.clipboard.writeText(
+                window.location.href
+            );
+
+            alert("Surprise link copied! ❤️");
+
+        }catch(error){
+
+            alert("Copy this link and send it to Babuu ❤️");
+
+        }
+
+    }
+
+}
+
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key==="Escape"){
+        closeMessage();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
