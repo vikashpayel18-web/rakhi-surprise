@@ -6,24 +6,11 @@
 
 <title>For Babuu ❤️</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-
 <style>
-
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
-}
-
-:root{
-    --cream:#fff8ed;
-    --paper:#fffdf7;
-    --maroon:#762f3c;
-    --brown:#704b43;
-    --rose:#c96d7c;
 }
 
 html,body{
@@ -32,377 +19,1037 @@ html,body{
 }
 
 body{
-    background:#f3d5c5;
-    color:var(--brown);
-    font-family:'DM Sans',sans-serif;
+    font-family:Arial,sans-serif;
+    background:#f7c8d0;
+    color:#63343d;
     overflow:hidden;
 }
 
-/* =========================
-   ONE PAGE AT A TIME
-========================= */
+/* ---------- PAGES ---------- */
 
 .page{
     position:fixed;
     inset:0;
     width:100%;
     height:100vh;
-
     display:none;
-
     align-items:center;
     justify-content:center;
-
-    padding:20px 15px;
-
+    padding:20px;
     overflow-y:auto;
-
-    z-index:1;
 }
 
 .page.active{
     display:flex;
-    z-index:10;
-
-    animation:pageIn .5s ease;
+    animation:fade .5s ease;
 }
 
-@keyframes pageIn{
-
+@keyframes fade{
     from{
         opacity:0;
         transform:scale(.97);
     }
-
     to{
         opacity:1;
         transform:scale(1);
     }
-
 }
 
 .container{
     width:100%;
-    max-width:850px;
+    max-width:750px;
     margin:auto;
 }
 
-/* =========================
-   BUTTON
-========================= */
+/* ---------- BUTTON ---------- */
 
 .btn{
     border:0;
-    padding:14px 28px;
-    border-radius:50px;
-
-    background:var(--maroon);
+    background:#843746;
     color:white;
-
-    font-size:15px;
+    padding:14px 25px;
+    border-radius:30px;
+    font-size:16px;
     cursor:pointer;
-
-    box-shadow:0 5px 0 #54222c;
-
-    transition:.2s;
+    box-shadow:0 5px 0 #57232d;
 }
 
 .btn:active{
     transform:translateY(3px);
-    box-shadow:0 2px 0 #54222c;
+    box-shadow:0 2px 0 #57232d;
 }
 
-.btn.light{
-    background:#fff3e7;
-    color:var(--maroon);
-    box-shadow:0 5px 0 #dfb9a7;
-}
-
-/* =========================
-   COVER
-========================= */
+/* ---------- COVER ---------- */
 
 #cover{
-
     background:
-    radial-gradient(
-        circle at 15% 20%,
-        #ffe8d7 0 12%,
-        transparent 32%
-    ),
-
-    radial-gradient(
-        circle at 90% 80%,
-        #f5bbc4 0 12%,
-        transparent 32%
-    ),
-
-    var(--cream);
+    radial-gradient(circle at 10% 20%,#ffe8dc,transparent 30%),
+    radial-gradient(circle at 90% 80%,#ef9fac,transparent 30%),
+    #fff5eb;
 }
 
-.cover-card{
-
+.card{
+    background:#fffdf8;
     max-width:650px;
     margin:auto;
-
-    background:var(--paper);
-
-    padding:45px 20px 40px;
-
+    padding:40px 22px;
     text-align:center;
-
-    border-radius:10px;
-
-    box-shadow:
-        0 25px 60px #713c4720;
-
-    transform:rotate(-1deg);
+    border-radius:12px;
+    box-shadow:0 20px 50px #743b4525;
 }
 
-.label{
-
-    font-size:11px;
-
+.small{
+    font-size:12px;
     letter-spacing:3px;
-
+    color:#a16d68;
     text-transform:uppercase;
-
-    color:#a67870;
 }
 
-.cover-title{
-
-    font-family:'Caveat',cursive;
-
-    font-size:
-        clamp(
-            60px,
-            14vw,
-            100px
-        );
-
-    color:var(--maroon);
-
+.title{
+    font-family:cursive;
+    font-size:clamp(60px,15vw,100px);
     line-height:.85;
-
-    margin:18px 0;
+    color:#843746;
+    margin:20px 0;
 }
 
-.cover-sub{
-
-    font-family:'Caveat',cursive;
-
-    color:#a35d68;
-
+.subtitle{
+    font-family:cursive;
     font-size:25px;
-
-    line-height:1.2;
+    color:#a45d69;
 }
 
-/* =========================
-   ENVELOPE
-========================= */
+/* ---------- ENVELOPE ---------- */
 
 .envelope-wrap{
-
-    width:285px;
-    height:190px;
-
-    margin:38px auto 28px;
-
+    width:280px;
+    height:185px;
+    margin:40px auto 30px;
     cursor:pointer;
-
-    perspective:900px;
 }
 
 .envelope{
-
     width:100%;
     height:100%;
-
     position:relative;
-
-    background:#e9b09b;
-
-    border-radius:5px;
-
-    box-shadow:
-        0 15px 30px #713c4725;
+    background:#df9b88;
+    border-radius:6px;
+    box-shadow:0 15px 30px #713c4725;
 }
 
 .envelope-back{
-
     position:absolute;
-
     inset:0;
-
-    background:#e0a08d;
-
-    z-index:1;
+    background:#d99683;
 }
 
-.letter-preview{
-
+.letter{
     position:absolute;
-
     width:88%;
-    height:145px;
-
+    height:140px;
     left:6%;
     bottom:15px;
-
-    background:#fffdf7;
-
-    z-index:2;
-
+    background:#fffdf8;
     padding:20px;
-
-    font-family:'Caveat',cursive;
-
-    font-size:21px;
-
-    color:var(--maroon);
-
+    font-family:cursive;
+    font-size:22px;
+    color:#843746;
+    z-index:2;
     transition:1s;
 }
 
 .flap{
-
     position:absolute;
-
     inset:0;
-
-    z-index:4;
-
-    background:#f4c5b4;
-
-    clip-path:
-        polygon(
-            0 0,
-            50% 58%,
-            100% 0
-        );
-
+    background:#f2c0ae;
+    clip-path:polygon(0 0,50% 58%,100% 0);
     transform-origin:top;
-
-    transition:
-        1s cubic-bezier(
-            .2,
-            .8,
-            .2,
-            1
-        );
+    transition:1s;
+    z-index:4;
 }
 
 .envelope.open .flap{
-
     transform:rotateX(180deg);
 }
 
-.envelope.open .letter-preview{
-
-    transform:translateY(-105px);
+.envelope.open .letter{
+    transform:translateY(-100px);
 }
 
-.envelope-front{
-
+.front{
     position:absolute;
-
     inset:0;
-
+    background:#cf8d7b;
+    clip-path:polygon(0 100%,50% 45%,100% 100%);
     z-index:3;
-
-    pointer-events:none;
-
-    background:#d99683;
-
-    clip-path:
-        polygon(
-            0 100%,
-            50% 45%,
-            100% 100%
-        );
 }
 
 .seal{
-
-    width:50px;
-    height:50px;
-
-    border-radius:50%;
-
-    background:#9e4c5d;
-
-    color:white;
-
     position:absolute;
-
     z-index:6;
-
     top:50%;
     left:50%;
-
-    transform:
-        translate(-50%,-50%);
-
+    transform:translate(-50%,-50%);
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    background:#984b5d;
+    color:white;
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     font-size:25px;
-
     transition:.5s;
 }
 
 .envelope.open .seal{
-
     opacity:0;
-
-    transform:
-        translate(-50%,-50%)
-        scale(.3);
+    transform:translate(-50%,-50%) scale(.3);
 }
 
-/* =========================
-   LETTER
-========================= */
+/* ---------- LETTER PAGE ---------- */
 
 #letter{
     background:#f7dccb;
 }
 
 .paper{
-
-    max-width:720px;
-
+    background:#fffdf8;
+    max-width:700px;
     margin:auto;
-
     padding:35px 28px;
-
-    background:var(--paper);
-
-    box-shadow:
-        0 20px 45px #713c4720;
+    box-shadow:0 20px 45px #713c4720;
 }
 
 .paper h2{
-
-    font-family:'Caveat',cursive;
-
-    font-size:50px;
-
-    color:var(--maroon);
-
-    margin-bottom:18px;
+    font-family:cursive;
+    font-size:48px;
+    color:#843746;
+    margin-bottom:20px;
 }
 
 .paper p{
-
-    font-family:'Caveat',cursive;
-
-    font-size:22px;
-
+    font-family:cursive;
+    font-size:21px;
     line-height:1.5;
+    margin-bottom:13px;
+}
 
-    margin
+.signature{
+    text-align:right;
+    font-size:28px!important;
+    color:#bd6373;
+}
+
+/* ---------- BALLOONS ---------- */
+
+#balloons{
+    background:#fff0e3;
+}
+
+.section-title{
+    text-align:center;
+    font-family:cursive;
+    font-size:60px;
+    color:#843746;
+    margin-bottom:12px;
+}
+
+.center-text{
+    text-align:center;
+    color:#916d64;
+}
+
+.balloon-area{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:22px;
+    margin:45px auto;
+    max-width:600px;
+}
+
+.balloon{
+    width:68px;
+    height:92px;
+    border-radius:50%;
+    cursor:pointer;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-family:cursive;
+    font-size:28px;
+    animation:float 3s ease-in-out infinite;
+}
+
+.balloon:nth-child(1){background:#e59aa5}
+.balloon:nth-child(2){background:#efbd9f}
+.balloon:nth-child(3){background:#c77b87}
+.balloon:nth-child(4){background:#e6a38f}
+.balloon:nth-child(5){background:#d78493}
+.balloon:nth-child(6){background:#efc4a5}
+
+.balloon:after{
+    content:"";
+    position:absolute;
+    top:98%;
+    height:70px;
+    width:1px;
+    background:#95655e;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+.balloon.popped{
+    animation:pop .35s forwards;
+    pointer-events:none;
+}
+
+@keyframes pop{
+    0%{
+        transform:scale(1);
+        opacity:1;
+    }
+    60%{
+        transform:scale(1.3);
+        opacity:.5;
+    }
+    100%{
+        transform:scale(0);
+        opacity:0;
+    }
+}
+
+/* ---------- POPUP ---------- */
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:#3d2028aa;
+    backdrop-filter:blur(6px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:100;
+}
+
+.overlay.show{
+    display:flex;
+}
+
+.note{
+    background:#fffaf0;
+    width:100%;
+    max-width:450px;
+    padding:35px 25px;
+    text-align:center;
+    box-shadow:0 20px 60px #0004;
+    border-radius:8px;
+}
+
+.note h3{
+    font-family:cursive;
+    font-size:40px;
+    color:#843746;
+    margin:10px 0;
+}
+
+.note p{
+    font-family:cursive;
+    font-size:23px;
+    line-height:1.5;
+}
+
+/* ---------- PHOTO PAGES ---------- */
+
+#rakhi{
+    background:#f8dfd0;
+}
+
+#childhood{
+    background:#f3d2c0;
+}
+
+.photo-card{
+    max-width:620px;
+    margin:30px auto;
+    background:#fffdf8;
+    padding:20px;
+    box-shadow:0 20px 45px #713c4720;
+}
+
+.photo{
+    width:100%;
+    max-width:500px;
+    height:55vh;
+    min-height:280px;
+    margin:auto;
+    overflow:hidden;
+    border-radius:8px;
+    background:#f8e5db;
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.caption{
+    text-align:center;
+    font-family:cursive;
+    font-size:27px;
+    color:#843746;
+    margin-top:15px;
+}
+
+/* ---------- FINAL ---------- */
+
+#final{
+    background:#fff4e8;
+    text-align:center;
+}
+
+.final-icon{
+    font-size:70px;
+}
+
+.final-text{
+    font-family:cursive;
+    font-size:27px;
+    line-height:1.5;
+    margin:20px auto;
+    max-width:600px;
+}
+
+.final-title{
+    font-family:cursive;
+    color:#843746;
+    font-size:clamp(48px,10vw,80px);
+    line-height:.9;
+}
+
+.from{
+    font-family:cursive;
+    font-size:30px;
+    color:#b45f6c;
+    margin:20px 0 30px;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:600px){
+
+    .page{
+        padding:14px;
+    }
+
+    .envelope-wrap{
+        width:245px;
+        height:165px;
+    }
+
+    .paper{
+        max-height:90vh;
+        overflow-y:auto;
+        padding:28px 20px;
+    }
+
+    .paper h2{
+        font-size:42px;
+    }
+
+    .paper p{
+        font-size:19px;
+    }
+
+    .section-title{
+        font-size:48px;
+    }
+
+    .balloon-area{
+        gap:17px;
+        margin:35px auto;
+    }
+
+    .balloon{
+        width:60px;
+        height:83px;
+    }
+
+    .photo{
+        height:50vh;
+        min-height:260px;
+    }
+
+    .caption{
+        font-size:23px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= PAGE 1 ================= -->
+
+<section class="page active" id="cover">
+
+<div class="container">
+
+<div class="card">
+
+<div class="small">
+A tiny surprise made with love
+</div>
+
+<div class="title">
+Something<br>
+For You ❤️
+</div>
+
+<div class="subtitle">
+For my little Babuu...<br>
+my forever partner in crime 😂❤️
+</div>
+
+<div class="envelope-wrap" onclick="openEnvelope()">
+
+<div class="envelope" id="envelope">
+
+<div class="envelope-back"></div>
+
+<div class="letter">
+A little something...<br>
+just for you ❤️
+</div>
+
+<div class="flap"></div>
+
+<div class="front"></div>
+
+<div class="seal">
+♡
+</div>
+
+</div>
+
+</div>
+
+<button class="btn" onclick="openEnvelope()">
+Open 💌
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PAGE 2 ================= -->
+
+<section class="page" id="letter">
+
+<div class="container">
+
+<div class="paper">
+
+<h2>
+Dear Babuu ❤️
+</h2>
+
+<p>
+I don't always say it, but I'm really lucky to have you in my life.
+</p>
+
+<p>
+Growing up with you means silly fights,
+random laughs, teasing each other
+and making memories that I'll always keep.
+</p>
+
+<p>
+You're annoying sometimes...
+okay fine, <b>most of the time.</b> 😂
+</p>
+
+<p>
+But you're my little brother,
+and no matter how much we fight,
+I'll always have your back.
+</p>
+
+<p>
+Thank you for being you
+and for making our family a little more fun.
+</p>
+
+<p>
+I hope we keep making crazy memories together
+for many, many years.
+</p>
+
+<p>
+And yes...
+Rakhi means a treat too.
+Don't even try to escape. 😌😂
+</p>
+
+<p class="signature">
+Lots of love,<br>
+Didi ❤️
+</p>
+
+<div style="text-align:center;margin-top:20px">
+
+<button class="btn" onclick="goTo('balloons')">
+Next → 🎈
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PAGE 3 ================= -->
+
+<section class="page" id="balloons">
+
+<div class="container">
+
+<h1 class="section-title">
+A Few Little Things 🎈
+</h1>
+
+<p class="center-text">
+Tap every balloon and discover a little message from Didi ❤️
+</p>
+
+<div class="balloon-area">
+
+<div class="balloon" onclick="showMessage(0,this)">♡</div>
+
+<div class="balloon" onclick="showMessage(1,this)">✦</div>
+
+<div class="balloon" onclick="showMessage(2,this)">♡</div>
+
+<div class="balloon" onclick="showMessage(3,this)">✿</div>
+
+<div class="balloon" onclick="showMessage(4,this)">♥</div>
+
+<div class="balloon" onclick="showMessage(5,this)">✦</div>
+
+</div>
+
+<div id="balloonNext"
+style="display:none;text-align:center">
+
+<button class="btn" onclick="goTo('rakhi')">
+Next → 🎀
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= POPUP ================= -->
+
+<div class="overlay" id="overlay">
+
+<div class="note">
+
+<button
+onclick="closeMessage()"
+style="position:absolute;right:20px;top:15px;border:0;background:none;font-size:25px;">
+×
+</button>
+
+<h3>
+Hey Babuu ❤️
+</h3>
+
+<p id="messageText"></p>
+
+<br>
+
+<button class="btn" onclick="closeMessage()">
+Okayy ❤️
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ================= PAGE 4 RAKHI ================= -->
+
+<section class="page" id="rakhi">
+
+<div class="container">
+
+<h1 class="section-title">
+Something I Got For You 🎁
+</h1>
+
+<p class="center-text">
+A little Rakhi, chosen specially for my Babuu ❤️
+</p>
+
+<div class="photo-card">
+
+<div class="photo">
+
+<img src="rakhi.jpeg" alt="Rakhi for Babuu">
+
+</div>
+
+<div class="caption">
+Saw this and thought of you 🥹❤️
+</div>
+
+</div>
+
+<div style="text-align:center">
+
+<button class="btn" onclick="goTo('childhood')">
+Next → 👶🏻
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PAGE 5 CHILDHOOD ================= -->
+
+<section class="page" id="childhood">
+
+<div class="container">
+
+<h1 class="section-title">
+A Little Throwback 👶🏻❤️
+</h1>
+
+<p class="center-text">
+One childhood memory of my little Babuu 🥹
+</p>
+
+<div class="photo-card">
+
+<div class="photo">
+
+<img src="babuu-childhood.jpeg" alt="Babuu childhood">
+
+</div>
+
+<div class="caption">
+Look how little Babuu was 🥹❤️
+</div>
+
+</div>
+
+<div style="text-align:center">
+
+<button class="btn" onclick="goTo('final')">
+One Last Thing ❤️
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PAGE 6 ================= -->
+
+<section class="page" id="final">
+
+<div class="container">
+
+<div>
+
+<div class="final-icon">
+🪢
+</div>
+
+<p class="final-text">
+Some bonds don't need perfect words...
+<br>
+they just grow stronger with every silly fight,
+every laugh and every memory. ❤️
+</p>
+
+<div class="final-title">
+Happy Raksha<br>
+Bandhan Babuu ❤️
+</div>
+
+<div class="from">
+— Didi ❤️
+</div>
+
+<button class="btn" onclick="shareWebsite()">
+Share This Surprise 💌
+</button>
+
+<br><br>
+
+<button class="btn" onclick="goTo('cover')">
+↻ Replay Our Story
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+/* =========================
+   PAGE CHANGE
+========================= */
+
+function goTo(id){
+
+    document.querySelectorAll(".page").forEach(function(page){
+        page.classList.remove("active");
+    });
+
+    const page = document.getElementById(id);
+
+    if(page){
+        page.classList.add("active");
+        page.scrollTop = 0;
+    }
+}
+
+
+/* =========================
+   ENVELOPE
+========================= */
+
+let opened = false;
+
+function openEnvelope(){
+
+    if(opened) return;
+
+    opened = true;
+
+    document
+    .getElementById("envelope")
+    .classList.add("open");
+
+    createHearts(15);
+
+    setTimeout(function(){
+        goTo("letter");
+    },1200);
+}
+
+
+/* =========================
+   BALLOONS
+========================= */
+
+const messages = [
+
+"You're my little brother, so annoying you are literally a full-time job. 😂❤️",
+
+"No matter how much we fight, I'll always be there for you. 🥹❤️",
+
+"Some of my favourite memories have little Babuu somewhere in them. ❤️",
+
+"Official reminder: Rakhi = treat. This is non-negotiable. 👀😂",
+
+"You'll always be my little brother, even when you grow older. 🫶🏻",
+
+"Love you Babuu. Don't let this make you too emotional though. 😂❤️"
+
+];
+
+let popped = 0;
+
+function showMessage(index,balloon){
+
+    document.getElementById("messageText")
+    .textContent = messages[index];
+
+    document.getElementById("overlay")
+    .classList.add("show");
+
+    if(!balloon.classList.contains("popped")){
+
+        balloon.classList.add("popped");
+
+        popped++;
+
+    }
+
+    createHearts(6);
+
+    if(popped === 6){
+
+        setTimeout(function(){
+
+            document.getElementById("balloonNext")
+            .style.display = "block";
+
+        },400);
+
+    }
+}
+
+
+/* =========================
+   CLOSE MESSAGE
+========================= */
+
+function closeMessage(){
+
+    document
+    .getElementById("overlay")
+    .classList.remove("show");
+
+}
+
+
+/* =========================
+   HEARTS
+========================= */
+
+function createHearts(amount){
+
+    const symbols = ["♥","♡","✦","🌸"];
+
+    for(let i=0;i<amount;i++){
+
+        const heart =
+        document.createElement("div");
+
+        heart.textContent =
+        symbols[Math.floor(Math.random()*symbols.length)];
+
+        heart.style.position="fixed";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.top="-20px";
+        heart.style.zIndex="2000";
+        heart.style.pointerEvents="none";
+        heart.style.fontSize=(14+Math.random()*18)+"px";
+        heart.style.color="#9e4c5d";
+
+        heart.style.animation =
+        "fall "+(4+Math.random()*3)+"s linear forwards";
+
+        document.body.appendChild(heart);
+
+        setTimeout(function(){
+            heart.remove();
+        },7500);
+    }
+}
+
+
+/* =========================
+   HEART ANIMATION
+========================= */
+
+const style =
+document.createElement("style");
+
+style.textContent = `
+
+@keyframes fall{
+
+    from{
+        transform:translateY(-20px) rotate(0deg);
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
+
+}
+
+`;
+
+document.head.appendChild(style);
+
+
+/* =========================
+   SHARE
+========================= */
+
+async function shareWebsite(){
+
+    const data = {
+
+        title:"Something For Babuu ❤️",
+
+        text:
+        "I made a little Raksha Bandhan surprise for you 🎀❤️",
+
+        url:window.location.href
+
+    };
+
+    if(navigator.share){
+
+        try{
+            await navigator.share(data);
+        }
+        catch(e){}
+
+    }else{
+
+        try{
+
+            await navigator.clipboard.writeText(
+                window.location.href
+            );
+
+            alert("Surprise link copied! ❤️");
+
+        }
+        catch(e){
+
+            alert(
+                "Copy this page link and send it to Babuu ❤️"
+            );
+
+        }
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
